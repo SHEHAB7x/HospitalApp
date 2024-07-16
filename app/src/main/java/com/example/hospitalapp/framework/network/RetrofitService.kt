@@ -4,6 +4,7 @@ import com.example.hospitalapp.features.hr.data.models.ModelAllUsers
 import com.example.hospitalapp.features.hr.data.models.ModelProfileUser
 import com.example.hospitalapp.features.hr.data.models.ModelRegisterNewUser
 import com.example.hospitalapp.features.login.data.model.ModelUser
+import com.example.hospitalapp.features.specialist.data.model.ModelAllCalls
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -61,4 +62,9 @@ interface RetrofitService {
         @Field("mobile") mobile: String,
         @Field("type") type: String
     ): ModelRegisterNewUser
+
+    @GET("calls")
+    suspend fun getCalls(
+        @Query("date") date : String
+    ) : ModelAllCalls
 }

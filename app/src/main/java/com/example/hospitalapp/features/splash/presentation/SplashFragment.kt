@@ -42,7 +42,7 @@ class SplashFragment : Fragment() {
                         val navController = Navigation.findNavController(binding.root)
                         when {
                             MySharedPreferences.getUserType() == Const.HR -> navController.navigate(R.id.action_splashFragment_to_hrHomeFragment)
-                            //MySharedPreferences.getUserType() == Const.RECEPTIONIST -> navController.navigate(R.id.action_FSplash_to_receptionFragment)
+                            MySharedPreferences.getUserType() == Const.RECEPTIONIST -> navController.navigate(R.id.action_splashFragment_to_receptionistHomeFragment)
                             else -> navController.navigate(R.id.action_splashFragment_to_loginFragment)
                         }
                     }

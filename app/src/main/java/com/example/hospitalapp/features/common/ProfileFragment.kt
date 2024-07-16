@@ -102,8 +102,8 @@ class ProfileFragment : Fragment() {
                             .navigate(R.id.action_profileFragment_to_hrHomeFragment)
                 }
 
-                //Const.RECEPTIONIST -> Navigation.findNavController(it)
-                //.navigate(R.id.action_profile_to_receptionFragment)
+                Const.RECEPTIONIST -> Navigation.findNavController(it)
+                .navigate(R.id.action_profileFragment_to_receptionistHomeFragment)
             }
         }
     }
