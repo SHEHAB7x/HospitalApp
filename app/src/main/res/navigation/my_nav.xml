@@ -81,6 +81,9 @@
         <action
             android:id="@+id/action_callsFragment_to_receptionistHomeFragment"
             app:destination="@id/receptionistHomeFragment" />
+        <action
+            android:id="@+id/action_callsFragment_to_createCallFragment"
+            app:destination="@id/createCallFragment" />
     </fragment>
     <fragment
         android:id="@+id/receptionistHomeFragment"
@@ -125,5 +128,38 @@
         <action
             android:id="@+id/action_loginFragment_to_hrHomeFragment"
             app:destination="@id/hrHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCallFragment"
+        android:name="com.example.hospitalapp.features.specialist.presentation.view.CreateCallFragment"
+        android:label="fragment_create_call"
+        tools:layout="@layout/fragment_create_call" >
+        <action
+            android:id="@+id/action_createCallFragment_to_callsFragment"
+            app:destination="@id/callsFragment" />
+        <action
+            android:id="@+id/action_createCallFragment_to_selectDoctorFragment"
+            app:destination="@id/selectDoctorFragment" />
+        <action
+            android:id="@+id/action_createCallFragment_to_successfulCallFragment"
+            app:destination="@id/successfulCallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectDoctorFragment"
+        android:name="com.example.hospitalapp.features.specialist.presentation.view.SelectDoctorFragment"
+        android:label="fragment_select_doctor"
+        tools:layout="@layout/fragment_select_doctor" >
+        <action
+            android:id="@+id/action_selectDoctorFragment_to_createCallFragment"
+            app:destination="@id/createCallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfulCallFragment"
+        android:name="com.example.hospitalapp.features.specialist.presentation.view.SuccessfulCallFragment"
+        android:label="fragment_successful_call"
+        tools:layout="@layout/fragment_successful_call" >
+        <action
+            android:id="@+id/action_successfulCallFragment_to_receptionistHomeFragment"
+            app:destination="@id/receptionistHomeFragment" />
     </fragment>
 </navigation>

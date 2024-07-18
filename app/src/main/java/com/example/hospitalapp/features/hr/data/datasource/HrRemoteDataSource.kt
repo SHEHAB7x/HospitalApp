@@ -8,9 +8,9 @@ import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.framework.network.RetrofitService
 import javax.inject.Inject
 
-class HrRemoteDataSource @Inject constructor(private val retrofitService: RetrofitService) {
+class HrRemoteDataSource @Inject constructor(private val retrofitService: RetrofitService) : IHrRemoteDataSource {
 
-    suspend fun getUserProfile(id: Int): ResponseState<ModelProfileUser> {
+    override suspend fun getUserProfile(id: Int): ResponseState<ModelProfileUser> {
         val response = retrofitService.showProfile(id)
         return if (response.status == 1) {
             ResponseState.Success(response)
@@ -19,7 +19,7 @@ class HrRemoteDataSource @Inject constructor(private val retrofitService: Retrof
         }
     }
 
-    suspend fun getAllUsers(type :String) : ResponseState<ModelAllUsers>{
+    override suspend fun getAllUsers(type :String) : ResponseState<ModelAllUsers>{
         val response = retrofitService.getUserByType(type)
         return if(response.status == 1){
             ResponseState.Success(response)
@@ -28,7 +28,7 @@ class HrRemoteDataSource @Inject constructor(private val retrofitService: Retrof
         }
     }
 
-    suspend fun registerNewUser(
+    override suspend fun registerNewUser(
         email: String,
         password: String,
         firstName: String,

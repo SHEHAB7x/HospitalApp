@@ -6,9 +6,9 @@ import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.framework.network.RetrofitService
 import javax.inject.Inject
 
-class LoginRemoteDataSource @Inject constructor(private val retrofitService: RetrofitService,private val localDataSource: LoginLocalDataSource) {
+class LoginRemoteDataSource @Inject constructor(private val retrofitService: RetrofitService) : ILoginRemoteDataSource {
 
-    suspend fun login(email:String, password:String, deviceToken:String) : ResponseState<ModelUser>{
+    override suspend fun login(email:String, password:String, deviceToken:String) : ResponseState<ModelUser>{
         val response = retrofitService.loginUser(email,password,deviceToken)
         return if(response.status == 1){
             ResponseState.Success(response)

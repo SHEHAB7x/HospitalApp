@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
         binding.loading.visibility = View.GONE
         val action = when (user.type) {
             Const.HR -> R.id.action_loginFragment_to_hrHomeFragment
-            //Const.RECEPTIONIST -> R.id.action_FLogin_to_receptionFragment
+            Const.RECEPTIONIST -> R.id.action_loginFragment_to_receptionistHomeFragment
             else -> null
         }
         action?.let { findNavController().navigate(it) } ?: run {
