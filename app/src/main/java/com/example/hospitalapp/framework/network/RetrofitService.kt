@@ -5,20 +5,21 @@ import com.example.hospitalapp.features.hr.data.models.ModelProfileUser
 import com.example.hospitalapp.features.hr.data.models.ModelRegisterNewUser
 import com.example.hospitalapp.features.login.data.model.ModelUser
 import com.example.hospitalapp.features.specialist.data.model.ModelAllCalls
+import com.example.hospitalapp.features.specialist.data.model.ModelAllDoctors
+import com.example.hospitalapp.features.specialist.data.model.ModelCreateCall
+import com.example.hospitalapp.features.specialist.data.model.ModelLogoutCall
+import com.example.hospitalapp.features.specialist.data.model.ModelShowCall
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RetrofitService {
-   /*
 
-    @GET("calls")
-    suspend fun getCalls(
-        @Query("date") date : String
-    ) : ModelAllCalls
-
+    @FormUrlEncoded
     @POST("calls")
     suspend fun createCall(
         @Field("patient_name") patientName : String,
@@ -26,7 +27,7 @@ interface RetrofitService {
         @Field("age") age : String,
         @Field("phone") phone : String,
         @Field("description") description : String
-    ) : ModelCreateCall*/
+    ) : ModelCreateCall
 
     @FormUrlEncoded
     @POST("login")
@@ -46,6 +47,11 @@ interface RetrofitService {
     suspend fun getUserByType(
         @Query("type") type : String
     ): ModelAllUsers
+
+    @GET("doctors")
+    suspend fun getDoctors(
+        @Query("type") type : String
+    ): ModelAllDoctors
 
     @FormUrlEncoded
     @POST("register")
@@ -67,4 +73,14 @@ interface RetrofitService {
     suspend fun getCalls(
         @Query("date") date : String
     ) : ModelAllCalls
+
+    @GET("calls/{id}")
+    suspend fun showCall(
+        @Path("id") callId : Int
+    ): ModelShowCall
+
+    @PUT("calls/{id}")
+    suspend fun logoutCall(
+        @Path("id") callId : Int
+    ): ModelLogoutCall
 }

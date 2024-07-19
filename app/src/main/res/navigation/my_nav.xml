@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_callsFragment_to_createCallFragment"
             app:destination="@id/createCallFragment" />
+        <action
+            android:id="@+id/action_callsFragment_to_caseDetailsFragment"
+            app:destination="@id/caseDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/receptionistHomeFragment"
@@ -161,5 +164,17 @@
         <action
             android:id="@+id/action_successfulCallFragment_to_receptionistHomeFragment"
             app:destination="@id/receptionistHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/caseDetailsFragment"
+        android:name="com.example.hospitalapp.features.specialist.presentation.view.CaseDetailsFragment"
+        android:label="fragment_case_details"
+        tools:layout="@layout/fragment_case_details" >
+        <action
+            android:id="@+id/action_caseDetailsFragment_to_callsFragment"
+            app:destination="@id/callsFragment" />
+        <argument
+            android:name="callId"
+            app:argType="integer" />
     </fragment>
 </navigation>

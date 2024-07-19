@@ -28,7 +28,7 @@
         android:id="@+id/emp_name"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Helmy Fadl"
+        android:text="Shehab Abdelhares"
         android:textSize="17dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"

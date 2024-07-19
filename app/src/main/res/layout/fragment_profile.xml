@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mint_green"
-    tools:context=".ui.hr.ProfileFragment">
+    >
 
     <ImageView
         android:id="@+id/btnBack"

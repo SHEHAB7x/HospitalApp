@@ -30,6 +30,10 @@
     <string name="please_select_doctor">Please Select Doctor!</string>
     <string name="specialist_doctor">Specialist , Doctor</string>
     <string name="attendance_leaving">attendance - leaving</string>
+    <string name="case_details">Case Details</string>
+    <string name="logout">Logout</string>
+    <string name="finished">Finished</string>
+    <string name="case_has_been_logged_out">case has been logged out</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>
