@@ -107,7 +107,7 @@ class NewUserFragment : Fragment() {
 
     private fun onClicks() {
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_newUserFragment3_to_employeeListFragment)
+            findNavController().popBackStack()
         }
 
         binding.btnCreateNewUser.setOnClickListener {

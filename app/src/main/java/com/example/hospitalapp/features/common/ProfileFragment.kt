@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresExtension
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentProfileBinding
 import com.example.hospitalapp.features.hr.domain.models.UserProfile
@@ -75,7 +76,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showError(message: String) {
-        binding.username.text = message
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         binding.loading.visibility = View.GONE
     }
@@ -95,15 +95,16 @@ class ProfileFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             when (MySharedPreferences.getUserType()) {
                 Const.HR -> {
-                    if (from == getString(R.string.fromemp))
-                     Navigation.findNavController(it).navigate(R.id.action_profileFragment_to_employeeListFragment)
-                    else
+                    if (from == getString(R.string.fromemp)) {
                         Navigation.findNavController(it)
-                            .navigate(R.id.action_profileFragment_to_hrHomeFragment)
+                            .navigate(R.id.action_profileFragment_to_employeeListFragment)
+                    } else
+                        findNavController().popBackStack()
                 }
 
-                Const.RECEPTIONIST -> Navigation.findNavController(it)
-                .navigate(R.id.action_profileFragment_to_receptionistHomeFragment)
+                Const.RECEPTIONIST -> {
+                    findNavController().popBackStack()
+                }
             }
         }
     }

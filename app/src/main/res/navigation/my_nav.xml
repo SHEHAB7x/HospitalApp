@@ -5,7 +5,6 @@
     android:id="@+id/my_nav"
     app:startDestination="@id/splashFragment">
 
-
     <fragment
         android:id="@+id/hrHomeFragment"
         android:name="com.example.hospitalapp.features.hr.presentation.view.HrHomeFragment"
@@ -13,17 +12,24 @@
         tools:layout="@layout/fragment_hr_home">
         <action
             android:id="@+id/action_hrHomeFragment_to_profileFragment"
-            app:destination="@id/profileFragment">
-
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
             <argument
                 android:name="id"
                 app:argType="integer" />
-            />
         </action>
         <action
             android:id="@+id/action_hrHomeFragment_to_employeeListFragment"
-            app:destination="@id/employeeListFragment" />
+            app:destination="@id/employeeListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.hospitalapp.features.common.ProfileFragment"
@@ -31,26 +37,39 @@
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_hrHomeFragment"
-            app:destination="@id/hrHomeFragment" />
+            app:destination="@id/hrHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_profileFragment_to_employeeListFragment"
-            app:destination="@id/employeeListFragment" />
+            app:destination="@id/employeeListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_profileFragment_to_receptionistHomeFragment"
-            app:destination="@id/receptionistHomeFragment" />
+            app:destination="@id/receptionistHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/employeeListFragment"
         android:name="com.example.hospitalapp.features.hr.presentation.view.EmployeeListFragment"
         android:label="fragment_employee_list"
         tools:layout="@layout/fragment_employee_list" >
         <action
-            android:id="@+id/action_employeeListFragment_to_hrHomeFragment"
-            app:destination="@id/hrHomeFragment" />
-
-        <action
             android:id="@+id/action_employeeListFragment_to_profileFragment"
-            app:destination="@id/profileFragment" >
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" >
             <argument
                 android:name="id"
                 app:argType="integer" />
@@ -60,34 +79,41 @@
         </action>
         <action
             android:id="@+id/action_employeeListFragment_to_newUserFragment"
-            app:destination="@id/newUserFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newUserFragment"
-        android:name="com.example.hospitalapp.features.hr.presentation.view.NewUserFragment"
-        android:label="NewUserFragment" >
+            app:destination="@id/newUserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_newUserFragment3_to_employeeListFragment"
-            app:destination="@id/employeeListFragment" />
-        <action
-            android:id="@+id/action_newUserFragment_to_hrHomeFragment"
-            app:destination="@id/hrHomeFragment" />
+            android:id="@+id/action_employeeListFragment_to_hrHomeFragment"
+            app:destination="@id/hrHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/callsFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.CallsFragment"
         android:label="fragment_calls"
         tools:layout="@layout/fragment_calls" >
         <action
-            android:id="@+id/action_callsFragment_to_receptionistHomeFragment"
-            app:destination="@id/receptionistHomeFragment" />
-        <action
             android:id="@+id/action_callsFragment_to_createCallFragment"
-            app:destination="@id/createCallFragment" />
+            app:destination="@id/createCallFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_callsFragment_to_caseDetailsFragment"
-            app:destination="@id/caseDetailsFragment" />
+            app:destination="@id/caseDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/receptionistHomeFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.ReceptionistHomeFragment"
@@ -95,16 +121,24 @@
         tools:layout="@layout/fragment_receptionist_home" >
         <action
             android:id="@+id/action_receptionistHomeFragment_to_callsFragment"
-            app:destination="@id/callsFragment" />
-
+            app:destination="@id/callsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_receptionistHomeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" >
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
             <argument
                 android:name="id"
                 app:argType="integer" />
         </action>
     </fragment>
+
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.hospitalapp.features.splash.presentation.SplashFragment"
@@ -112,14 +146,36 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_receptionistHomeFragment"
-            app:destination="@id/receptionistHomeFragment" />
+            app:destination="@id/receptionistHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_hrHomeFragment"
-            app:destination="@id/hrHomeFragment" />
+            app:destination="@id/hrHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.hospitalapp.features.login.presentation.LoginFragment"
@@ -127,35 +183,50 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_receptionistHomeFragment"
-            app:destination="@id/receptionistHomeFragment" />
+            app:destination="@id/receptionistHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_hrHomeFragment"
-            app:destination="@id/hrHomeFragment" />
+            app:destination="@id/hrHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_doctorHomeFragment"
+            app:destination="@id/doctorHomeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/createCallFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.CreateCallFragment"
         android:label="fragment_create_call"
         tools:layout="@layout/fragment_create_call" >
         <action
-            android:id="@+id/action_createCallFragment_to_callsFragment"
-            app:destination="@id/callsFragment" />
-        <action
             android:id="@+id/action_createCallFragment_to_selectDoctorFragment"
-            app:destination="@id/selectDoctorFragment" />
+            app:destination="@id/selectDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_createCallFragment_to_successfulCallFragment"
-            app:destination="@id/successfulCallFragment" />
+            app:destination="@id/successfulCallFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/selectDoctorFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.SelectDoctorFragment"
         android:label="fragment_select_doctor"
-        tools:layout="@layout/fragment_select_doctor" >
-        <action
-            android:id="@+id/action_selectDoctorFragment_to_createCallFragment"
-            app:destination="@id/createCallFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_select_doctor" />
+
     <fragment
         android:id="@+id/successfulCallFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.SuccessfulCallFragment"
@@ -163,18 +234,55 @@
         tools:layout="@layout/fragment_successful_call" >
         <action
             android:id="@+id/action_successfulCallFragment_to_receptionistHomeFragment"
-            app:destination="@id/receptionistHomeFragment" />
+            app:destination="@id/receptionistHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
         android:id="@+id/caseDetailsFragment"
         android:name="com.example.hospitalapp.features.specialist.presentation.view.CaseDetailsFragment"
         android:label="fragment_case_details"
         tools:layout="@layout/fragment_case_details" >
-        <action
-            android:id="@+id/action_caseDetailsFragment_to_callsFragment"
-            app:destination="@id/callsFragment" />
         <argument
             android:name="callId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/newUserFragment"
+        android:name="com.example.hospitalapp.features.hr.presentation.view.NewUserFragment"
+        android:label="fragment_new_user"
+        tools:layout="@layout/fragment_new_user" >
+        <action
+            android:id="@+id/action_newUserFragment_to_hrHomeFragment"
+            app:destination="@id/hrHomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorHomeFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.DoctorHomeFragment"
+        android:label="fragment_doctor_home"
+        tools:layout="@layout/fragment_doctor_home" >
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_doctorCallsFragment"
+            app:destination="@id/doctorCallsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorCallsFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.DoctorCallsFragment"
+        android:label="fragment_doctor_calls"
+        tools:layout="@layout/fragment_doctor_calls" />
 </navigation>
