@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.hospitalapp.features.specialist.domain.model.CreateCall
 import com.example.hospitalapp.features.specialist.domain.usecase.CreateCallUseCase
 import com.example.hospitalapp.framework.network.ResponseState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CreateCallViewModel @Inject constructor(private val createCallUseCase: CreateCallUseCase) : ViewModel() {
     private val _createCallLiveData = MutableLiveData<ResponseState<CreateCall>>()
     var createCallLiveData: LiveData<ResponseState<CreateCall>> = _createCallLiveData

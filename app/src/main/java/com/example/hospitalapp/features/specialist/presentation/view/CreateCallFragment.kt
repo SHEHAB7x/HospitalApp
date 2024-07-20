@@ -1,6 +1,7 @@
 package com.example.hospitalapp.features.specialist.presentation.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +15,16 @@ import com.example.hospital.databinding.FragmentCreateCallBinding
 import com.example.hospitalapp.features.specialist.presentation.viewModel.CreateCallViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateCallFragment : Fragment() {
 
     private var _binding: FragmentCreateCallBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CreateCallViewModel by viewModels()
     private var doctorId: Int = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,23 +37,27 @@ class CreateCallFragment : Fragment() {
 
     private fun observers() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(Const.DOCTOR_ID)
-            ?.observe(viewLifecycleOwner) {
-                doctorId = it
+            ?.observe(viewLifecycleOwner) { id ->
+                doctorId = id
+                showToast(id.toString())
             }
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(Const.DOCTOR_ID)
-            ?.observe(viewLifecycleOwner) {
-                binding.selectDoctor.text = it
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(Const.DOCTOR_NAME)
+            ?.observe(viewLifecycleOwner) { name ->
+                binding.selectDoctor.text = name
+
             }
         viewModel.createCallLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ResponseState.Success -> {
-                    //Navigation.findNavController(binding.root)
-                      // .navigate(R.id.action_createCallFragment_to_successfulCallFragment)
                     binding.loading.visibility = View.GONE
+                     Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_createCallFragment_to_successfulCallFragment)
+
                 }
                 is ResponseState.Error -> {
-                    showToast(state.message)
                     binding.loading.visibility = View.GONE
+                    showToast(state.message)
+                    Log.e("TAG", "observers: ${state.message}", )
                 }
                 ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
             }
@@ -63,7 +71,9 @@ class CreateCallFragment : Fragment() {
         binding.btnSendCall.setOnClickListener {
             validate()
         }
-
+        binding.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     private fun validate() {
@@ -73,16 +83,19 @@ class CreateCallFragment : Fragment() {
         val description = binding.editDescription.text.toString()
 
         when {
-            name == null -> showToast("Name")
-            age == null -> showToast("Age")
-            phone == null -> showToast("Phone")
+            name.isEmpty() -> showToast("Name")
+            age.isEmpty() -> showToast("Age")
+            phone.isEmpty() -> showToast("Phone")
             else -> viewModel.createCall(name, doctorId, age, phone, description)
         }
-
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(requireContext(), "$message field is missed", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

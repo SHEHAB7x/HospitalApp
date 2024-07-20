@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,19 +19,15 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-
-        onBackPressedDispatcher.addCallback(this,object : OnBackPressedCallback(true){
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val currentFragment = navController.currentDestination?.id
-                when (currentFragment) {
-                    R.id.hrHomeFragment -> finish()
-                    else -> navController.popBackStack()
+                val currentDestination = navController.currentDestination?.id
+                if (currentDestination == R.id.hrHomeFragment || currentDestination == R.id.receptionistHomeFragment) {
+                    finish()
+                } else {
+                    navController.popBackStack()
                 }
             }
-
         })
     }
-
-
-
 }

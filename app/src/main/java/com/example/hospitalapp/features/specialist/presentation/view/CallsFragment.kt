@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentCallsBinding
 import com.example.hospitalapp.features.specialist.presentation.adapters.AdapterCalls
@@ -74,13 +75,19 @@ class CallsFragment : Fragment() {
             datePicker()
         }
         binding.btnAddCall.setOnClickListener {
-           // Navigation.findNavController(it)
-             //   .navigate(R.id.action_callsFragment_to_createCallFragment)
+           Navigation.findNavController(it)
+                .navigate(R.id.action_callsFragment_to_createCallFragment)
         }
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(it)
-                .navigate(R.id.action_callsFragment_to_receptionistHomeFragment)
+            findNavController().popBackStack()
         }
+        adapterCalls?.listener = object : AdapterCalls(),AdapterCalls.OnItemClickListener{
+            override fun onItemClicked(id: Int) {
+                val action = CallsFragmentDirections.actionCallsFragmentToCaseDetailsFragment(id)
+                Navigation.findNavController(requireView()).navigate(action)
+            }
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

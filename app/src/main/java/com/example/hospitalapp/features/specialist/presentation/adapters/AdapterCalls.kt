@@ -9,11 +9,14 @@ import com.example.hospital.R
 import com.example.hospital.databinding.ItemCallBinding
 import com.example.hospitalapp.features.specialist.domain.model.AllCalls
 import com.example.hospitalapp.utlis.Const
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class AdapterCalls() :
+open class AdapterCalls() :
     RecyclerView.Adapter<AdapterCalls.Holder>() {
     var list: List<AllCalls>? = null
+    var listener : OnItemClickListener ?= null
+    var rowIndex = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding =
@@ -36,12 +39,27 @@ class AdapterCalls() :
         @RequiresApi(Build.VERSION_CODES.O)
         fun bind(call: AllCalls) {
             binding.name.text = call.patientName
-            val date = call.createdAt.format(DateTimeFormatter.ofPattern("dd . MM . yyyy"))
-            binding.date.text = date
-            if (call.status == Const.PENDING)
-                binding.status.setImageResource(R.drawable.ic_pending)
-            else
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            val date = LocalDate.parse(call.createdAt, formatter)
+            val formattedDate = date.format(DateTimeFormatter.ofPattern("dd . MM . yyyy"))
+
+            binding.date.text = formattedDate
+            if (call.status == Const.LOGOUT)
                 binding.status.setImageResource(R.drawable.ic_done)
+            else
+                binding.status.setImageResource(R.drawable.ic_pending)
         }
+
+        init {
+            itemView.setOnClickListener{
+                rowIndex = layoutPosition
+                listener?.onItemClicked(list?.get(layoutPosition)?.id!!)
+                notifyDataSetChanged()
+            }
+        }
+    }
+
+    interface OnItemClickListener{
+        fun onItemClicked(id : Int)
     }
 }

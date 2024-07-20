@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.reception.CreateCallFragment">
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/btnBack"
@@ -42,6 +41,8 @@
         android:hint="@string/patient_name"
         android:paddingHorizontal="@dimen/_15dp"
         android:textSize="16sp"
+        android:inputType="text"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEmp" />
@@ -57,6 +58,9 @@
         android:hint="@string/age"
         android:paddingHorizontal="@dimen/_15dp"
         android:textSize="16sp"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPatientName" />
@@ -72,6 +76,9 @@
         android:hint="@string/phone_number"
         android:paddingHorizontal="@dimen/_15dp"
         android:textSize="16sp"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:maxLength="11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAge" />
@@ -106,6 +113,8 @@
         android:paddingHorizontal="@dimen/_15dp"
         android:paddingTop="@dimen/_15dp"
         android:textSize="16sp"
+        android:inputType="text"
+        android:maxLines="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectDoctor" />

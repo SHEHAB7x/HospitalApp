@@ -43,6 +43,7 @@ class SplashFragment : Fragment() {
                         when {
                             MySharedPreferences.getUserType() == Const.HR -> navController.navigate(R.id.action_splashFragment_to_hrHomeFragment)
                             MySharedPreferences.getUserType() == Const.RECEPTIONIST -> navController.navigate(R.id.action_splashFragment_to_receptionistHomeFragment)
+                            MySharedPreferences.getUserType() == Const.DOCTOR -> navController.navigate(R.id.action_splashFragment_to_doctorHomeFragment)
                             else -> navController.navigate(R.id.action_splashFragment_to_loginFragment)
                         }
                     }

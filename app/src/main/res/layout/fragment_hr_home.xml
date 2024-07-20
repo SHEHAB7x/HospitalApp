@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.hr.HRHomeFragment">
+    >
 
     <ImageView
         android:id="@+id/notificationIcon"
@@ -47,7 +47,6 @@
             android:layout_marginStart="12dp"
             android:layout_toEndOf="@+id/profileImage"
             android:fontFamily="@font/poppins_regular"
-            android:text="Ebrahem Elzainy"
             android:textSize="15sp" />
 
         <TextView

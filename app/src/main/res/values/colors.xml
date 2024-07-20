@@ -7,10 +7,12 @@
     <color name="gray">#989898</color>
     <color name="dark_gray">#808080</color>
     <color name="orange">#DC915F</color>
+    <color name="orange_busy">#EC9511</color>
     <color name="light_green">#5FDC89</color>
     <color name="mauve">#915FDC</color>
     <color name="blue_card_att">#5FDCDC</color>
     <color name="blue_card_calls">#5F9EDC</color>
     <color name="light_blue">#90277DFF</color>
     <color name="red">#e63a3a</color>
+    <color name="green_btn">#1ad672</color>
 </resources>

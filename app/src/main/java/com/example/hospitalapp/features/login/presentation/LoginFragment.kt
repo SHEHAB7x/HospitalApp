@@ -70,6 +70,7 @@ class LoginFragment : Fragment() {
         val action = when (user.type) {
             Const.HR -> R.id.action_loginFragment_to_hrHomeFragment
             Const.RECEPTIONIST -> R.id.action_loginFragment_to_receptionistHomeFragment
+            Const.DOCTOR -> R.id.action_loginFragment_to_doctorHomeFragment
             else -> null
         }
         action?.let { findNavController().navigate(it) } ?: run {

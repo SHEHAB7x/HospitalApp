@@ -34,6 +34,8 @@
     <string name="logout">Logout</string>
     <string name="finished">Finished</string>
     <string name="case_has_been_logged_out">case has been logged out</string>
+    <string name="accept">Accept</string>
+    <string name="busy">Busy</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>

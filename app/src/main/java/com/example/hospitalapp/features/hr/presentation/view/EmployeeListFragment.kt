@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +12,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresExtension
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentEmployeeListBinding
 import com.example.hospitalapp.features.hr.domain.models.User
@@ -27,8 +27,7 @@ import com.example.hospitalapp.utlis.Const
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EmployeeListFragment
-    : Fragment() {
+class EmployeeListFragment : Fragment() {
 
     private var _binding: FragmentEmployeeListBinding? = null
     private val binding get() = _binding!!
@@ -62,12 +61,10 @@ class EmployeeListFragment
 
     private fun setupSearchEditText() {
         binding.editSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-            }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
-            }
             override fun afterTextChanged(s: Editable?) {
                 viewModel.filterUsers(s.toString())
             }
@@ -92,10 +89,12 @@ class EmployeeListFragment
                     adapterEmployeeList.list = listUsers
                     binding.employeeRecycler.adapter = adapterEmployeeList
                 }
+
                 is ResponseState.Error -> {
                     binding.loading.visibility = View.GONE
                     Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                 }
+
                 else -> {
                     binding.loading.visibility = View.VISIBLE
                 }
@@ -108,6 +107,7 @@ class EmployeeListFragment
                     binding.loading.visibility = View.GONE
                     navigateToProfile(it.data)
                 }
+
                 is ResponseState.Error -> {
                     binding.loading.visibility = View.GONE
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
@@ -122,22 +122,22 @@ class EmployeeListFragment
         }
     }
 
-
     private fun navigateToProfile(user: UserProfile) {
         val id: Int = user.id
-        val action = EmployeeListFragmentDirections.actionEmployeeListFragmentToProfileFragment(id,
-            getString(R.string.fromemp))
-        Navigation.findNavController(binding.root).navigate(action)
+        val action = EmployeeListFragmentDirections.actionEmployeeListFragmentToProfileFragment(
+            id,
+            getString(R.string.fromemp)
+        )
+        findNavController().navigate(action)
     }
 
     private fun onClicks() {
         binding.btnBack.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_employeeListFragment_to_hrHomeFragment)
+            findNavController().navigate(R.id.action_employeeListFragment_to_hrHomeFragment)
         }
         binding.btnAddNewUser.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_employeeListFragment_to_newUserFragment)
+            findNavController().navigate(R.id.action_employeeListFragment_to_newUserFragment)
         }
-
 
         val buttons = listOf(
             binding.btnAll,
@@ -162,7 +162,6 @@ class EmployeeListFragment
                 }
             }
         }
-
     }
 
     private fun TextView.updateStyle(isActive: Boolean, context: Context) {
