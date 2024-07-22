@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.presentation.view
+package com.example.hospitalapp.features.receptionist.presentation.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

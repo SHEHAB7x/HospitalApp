@@ -1,9 +1,9 @@
-package com.example.hospitalapp.features.specialist.di
+package com.example.hospitalapp.features.receptionist.di
 
-import com.example.hospitalapp.features.specialist.data.remote.IReceptionistRemoteDataSource
-import com.example.hospitalapp.features.specialist.data.remote.ReceptionistRemoteDataSource
-import com.example.hospitalapp.features.specialist.data.repo.ReceptionistRepository
-import com.example.hospitalapp.features.specialist.domain.repo.IReceptionistRepository
+import com.example.hospitalapp.features.receptionist.data.remote.IReceptionistRemoteDataSource
+import com.example.hospitalapp.features.receptionist.data.remote.ReceptionistRemoteDataSource
+import com.example.hospitalapp.features.receptionist.data.repo.ReceptionistRepository
+import com.example.hospitalapp.features.receptionist.domain.repo.IReceptionistRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

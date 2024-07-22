@@ -1,14 +1,15 @@
 package com.example.hospitalapp.framework.network
 
+import com.example.hospitalapp.features.doctor.data.model.ModelAllCallsOfDoctor
 import com.example.hospitalapp.features.hr.data.models.ModelAllUsers
 import com.example.hospitalapp.features.hr.data.models.ModelProfileUser
 import com.example.hospitalapp.features.hr.data.models.ModelRegisterNewUser
 import com.example.hospitalapp.features.login.data.model.ModelUser
-import com.example.hospitalapp.features.specialist.data.model.ModelAllCalls
-import com.example.hospitalapp.features.specialist.data.model.ModelAllDoctors
-import com.example.hospitalapp.features.specialist.data.model.ModelCreateCall
-import com.example.hospitalapp.features.specialist.data.model.ModelLogoutCall
-import com.example.hospitalapp.features.specialist.data.model.ModelShowCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllCalls
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllDoctors
+import com.example.hospitalapp.features.receptionist.data.model.ModelCreateCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelLogoutCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelShowCall
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -83,4 +84,14 @@ interface RetrofitService {
     suspend fun logoutCall(
         @Path("id") callId : Int
     ): ModelLogoutCall
+
+    @GET("calls")
+    suspend fun getAllCallsOfDoctor() : ModelAllCallsOfDoctor
+
+    @FormUrlEncoded
+    @PUT("calls-accept/{id}")
+    suspend fun acceptRejectCall(
+        @Path("id") callId : Int,
+        @Field("status") status : String
+        )
 }

@@ -9,7 +9,7 @@
     <string name="male">Male</string>
     <string name="_23_06_2001">23-06-2001</string>
     <string name="requried">Required</string>
-    <string name="forget_password">Forget Password?</string>
+    <string name="forget_password">Forget Password ?</string>
     <string name="invalid_user_type">Invalid Email or Password!</string>
     <string name="invalid_credentials">Invalid email or password</string>
     <string name="id">id</string>
@@ -36,6 +36,10 @@
     <string name="case_has_been_logged_out">case has been logged out</string>
     <string name="accept">Accept</string>
     <string name="busy">Busy</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="to_continue_login_now">To Continue , Login Now</string>
+    <string name="show_details">Show Details</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>

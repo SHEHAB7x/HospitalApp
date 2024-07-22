@@ -1,15 +1,13 @@
-package com.example.hospitalapp.features.specialist.data.repo
+package com.example.hospitalapp.features.receptionist.data.repo
 
-import com.example.hospitalapp.features.specialist.data.mapper.toDomain
-import com.example.hospitalapp.features.specialist.data.model.ModelCreateCall
-import com.example.hospitalapp.features.specialist.data.remote.IReceptionistRemoteDataSource
-import com.example.hospitalapp.features.specialist.data.remote.ReceptionistRemoteDataSource
-import com.example.hospitalapp.features.specialist.domain.model.AllCalls
-import com.example.hospitalapp.features.specialist.domain.model.AllDoctors
-import com.example.hospitalapp.features.specialist.domain.model.CreateCall
-import com.example.hospitalapp.features.specialist.domain.model.LogoutCall
-import com.example.hospitalapp.features.specialist.domain.model.ShowCall
-import com.example.hospitalapp.features.specialist.domain.repo.IReceptionistRepository
+import com.example.hospitalapp.features.receptionist.data.mapper.toDomain
+import com.example.hospitalapp.features.receptionist.data.remote.IReceptionistRemoteDataSource
+import com.example.hospitalapp.features.receptionist.domain.model.AllCalls
+import com.example.hospitalapp.features.receptionist.domain.model.AllDoctors
+import com.example.hospitalapp.features.receptionist.domain.model.CreateCall
+import com.example.hospitalapp.features.receptionist.domain.model.LogoutCall
+import com.example.hospitalapp.features.receptionist.domain.model.ShowCall
+import com.example.hospitalapp.features.receptionist.domain.repo.IReceptionistRepository
 import com.example.hospitalapp.framework.network.ResponseState
 import javax.inject.Inject
 

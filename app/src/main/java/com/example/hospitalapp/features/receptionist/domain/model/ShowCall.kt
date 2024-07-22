@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.domain.model
+package com.example.hospitalapp.features.receptionist.domain.model
 
 data class ShowCall (
     val id: Int,

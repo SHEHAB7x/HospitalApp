@@ -1,7 +1,7 @@
-package com.example.hospitalapp.features.specialist.domain.usecase
+package com.example.hospitalapp.features.receptionist.domain.usecase
 
-import com.example.hospitalapp.features.specialist.domain.model.ShowCall
-import com.example.hospitalapp.features.specialist.domain.repo.IReceptionistRepository
+import com.example.hospitalapp.features.receptionist.domain.model.ShowCall
+import com.example.hospitalapp.features.receptionist.domain.repo.IReceptionistRepository
 import com.example.hospitalapp.framework.network.ResponseState
 
 class ShowCallUseCase(private val repository: IReceptionistRepository) {

@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.presentation.view
+package com.example.hospitalapp.features.receptionist.presentation.view
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,12 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentSelectDoctorBinding
-import com.example.hospitalapp.features.specialist.presentation.adapters.AdapterSelectDoctor
-import com.example.hospitalapp.features.specialist.presentation.viewModel.SelectDoctorViewModel
+import com.example.hospitalapp.features.receptionist.presentation.adapters.AdapterSelectDoctor
+import com.example.hospitalapp.features.receptionist.presentation.viewModel.SelectDoctorViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,6 +48,8 @@ class SelectDoctorFragment : Fragment() {
         observers()
     }
 
+
+
     private fun observers() {
         selectDoctorViewModel.selectDoctorLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -66,6 +67,11 @@ class SelectDoctorFragment : Fragment() {
                 ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
             }
         }
+
+        selectDoctorViewModel.filteredUsers.observe(viewLifecycleOwner) { filteredUsers ->
+            adapterSelectDoctor?.list = filteredUsers
+            adapterSelectDoctor?.notifyDataSetChanged()
+        }
     }
 
     private fun setupSearchEditText() {
@@ -77,7 +83,7 @@ class SelectDoctorFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                //selectDoctorViewModel.filterUsers(s.toString())
+                selectDoctorViewModel.filterUsers(s.toString())
             }
         })
     }

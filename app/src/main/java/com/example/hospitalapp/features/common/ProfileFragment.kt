@@ -30,6 +30,7 @@ class ProfileFragment : Fragment() {
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         id = arguments?.getInt(getString(R.string.id))!!
         from = arguments?.getString(getString(R.string.fromemplist))
         viewModel.getUserProfile(id)
@@ -102,7 +103,7 @@ class ProfileFragment : Fragment() {
                         findNavController().popBackStack()
                 }
 
-                Const.RECEPTIONIST -> {
+                else -> {
                     findNavController().popBackStack()
                 }
             }

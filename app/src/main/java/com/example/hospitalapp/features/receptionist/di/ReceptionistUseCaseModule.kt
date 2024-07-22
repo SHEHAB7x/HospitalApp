@@ -1,11 +1,11 @@
-package com.example.hospitalapp.features.specialist.di
+package com.example.hospitalapp.features.receptionist.di
 
-import com.example.hospitalapp.features.specialist.domain.repo.IReceptionistRepository
-import com.example.hospitalapp.features.specialist.domain.usecase.CallsUseCase
-import com.example.hospitalapp.features.specialist.domain.usecase.CreateCallUseCase
-import com.example.hospitalapp.features.specialist.domain.usecase.LogoutCallUseCase
-import com.example.hospitalapp.features.specialist.domain.usecase.SelectDoctorUseCase
-import com.example.hospitalapp.features.specialist.domain.usecase.ShowCallUseCase
+import com.example.hospitalapp.features.receptionist.domain.repo.IReceptionistRepository
+import com.example.hospitalapp.features.receptionist.domain.usecase.CallsUseCase
+import com.example.hospitalapp.features.receptionist.domain.usecase.CreateCallUseCase
+import com.example.hospitalapp.features.receptionist.domain.usecase.LogoutCallUseCase
+import com.example.hospitalapp.features.receptionist.domain.usecase.SelectDoctorUseCase
+import com.example.hospitalapp.features.receptionist.domain.usecase.ShowCallUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.data.model
+package com.example.hospitalapp.features.receptionist.data.model
 
 data class ModelLogoutCall(
     val message: String,

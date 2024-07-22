@@ -1,17 +1,17 @@
-package com.example.hospitalapp.features.specialist.data.mapper
+package com.example.hospitalapp.features.receptionist.data.mapper
 
-import com.example.hospitalapp.features.specialist.data.model.DataAllCalls
-import com.example.hospitalapp.features.specialist.data.model.DataAllDoctors
-import com.example.hospitalapp.features.specialist.data.model.ModelAllCalls
-import com.example.hospitalapp.features.specialist.data.model.ModelAllDoctors
-import com.example.hospitalapp.features.specialist.data.model.ModelCreateCall
-import com.example.hospitalapp.features.specialist.data.model.ModelLogoutCall
-import com.example.hospitalapp.features.specialist.data.model.ModelShowCall
-import com.example.hospitalapp.features.specialist.domain.model.AllCalls
-import com.example.hospitalapp.features.specialist.domain.model.AllDoctors
-import com.example.hospitalapp.features.specialist.domain.model.CreateCall
-import com.example.hospitalapp.features.specialist.domain.model.LogoutCall
-import com.example.hospitalapp.features.specialist.domain.model.ShowCall
+import com.example.hospitalapp.features.receptionist.data.model.DataAllCalls
+import com.example.hospitalapp.features.receptionist.data.model.DataAllDoctors
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllCalls
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllDoctors
+import com.example.hospitalapp.features.receptionist.data.model.ModelCreateCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelLogoutCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelShowCall
+import com.example.hospitalapp.features.receptionist.domain.model.AllCalls
+import com.example.hospitalapp.features.receptionist.domain.model.AllDoctors
+import com.example.hospitalapp.features.receptionist.domain.model.CreateCall
+import com.example.hospitalapp.features.receptionist.domain.model.LogoutCall
+import com.example.hospitalapp.features.receptionist.domain.model.ShowCall
 
 fun ModelAllCalls.toDomain() : List<AllCalls>{
     return this.data.map { it.toDomain() }
