@@ -28,6 +28,7 @@ class AdapterEmployeeList(private val listener: OnItemClickListener) :
 
     inner class Holder(private val binding: ItemEmployeeBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(user: User) {
             binding.empName.text = user.firstName
             binding.spcialist.text = "Specialist - " + user.type

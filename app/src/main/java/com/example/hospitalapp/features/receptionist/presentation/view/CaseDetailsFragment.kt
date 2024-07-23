@@ -1,5 +1,8 @@
-package com.example.hospitalapp.features.specialist.presentation.view
+package com.example.hospitalapp.features.receptionist.presentation.view
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import  android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +14,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentCaseDetailsBinding
-import com.example.hospitalapp.features.specialist.domain.model.ShowCall
-import com.example.hospitalapp.features.specialist.presentation.viewModel.CaseDetailsViewModel
+import com.example.hospitalapp.features.receptionist.domain.model.ShowCall
+import com.example.hospitalapp.features.receptionist.presentation.viewModel.CaseDetailsViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
 import dagger.hilt.android.AndroidEntryPoint
@@ -82,20 +85,53 @@ class CaseDetailsFragment : Fragment() {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun handleLogoutBtn(){
-        binding.btnLogout.apply {
-            text = getString(R.string.case_has_been_logged_out)
-            setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.light_gray
-                )
-            )
-            setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-            setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_gray))
-            isEnabled = false
+    private fun handleLogoutBtn() {
+        val newText = getString(R.string.case_has_been_logged_out)
+        val originalColor = ContextCompat.getColor(requireContext(), R.color.red)
+        val newColor = ContextCompat.getColor(requireContext(), R.color.light_gray)
+
+        val textAnimator = ValueAnimator.ofInt(0, newText.length).apply {
+            duration = 300
+            addUpdateListener { animation ->
+                val length = animation.animatedValue as Int
+                binding.btnLogout.text = newText.substring(0, length)
+            }
         }
+
+        val colorAnimator = ValueAnimator.ofArgb(originalColor, newColor).apply {
+            duration = 300
+            addUpdateListener { animator ->
+                binding.btnLogout.setBackgroundColor(animator.animatedValue as Int)
+            }
+        }
+        val slideAnimator = ObjectAnimator.ofFloat(binding.btnLogout, "translationX", 0f, -50f).apply {
+            duration = 150
+            repeatCount = 1
+            repeatMode = ObjectAnimator.REVERSE
+        }
+
+        textAnimator.start()
+        colorAnimator.start()
+        slideAnimator.start()
+
+        slideAnimator.addListener(object : Animator.AnimatorListener {
+
+            override fun onAnimationStart(animation: Animator) {}
+            override fun onAnimationEnd(animation: Animator) {
+                binding.btnLogout.apply {
+                    text = newText
+                    setBackgroundColor(newColor)
+                    setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+                    setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_gray))
+                    isEnabled = false
+                }
+            }
+            override fun onAnimationCancel(animation: Animator) {}
+            override fun onAnimationRepeat(animation: Animator) {}
+        })
     }
+
+
 
     private fun setData(call: ShowCall) {
         binding.name.text = call.patientName

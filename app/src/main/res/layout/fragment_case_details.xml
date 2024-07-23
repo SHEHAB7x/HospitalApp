@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.example.hospitalapp.features.specialist.presentation.view.CaseDetailsFragment">
+    tools:context="com.example.hospitalapp.features.receptionist.presentation.view.CaseDetailsFragment">
 
     <View
         android:id="@+id/startLine"
@@ -118,7 +118,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_semibold"
-
         android:text="Case Description"
         android:textColor="@color/gray"
         android:textSize="@dimen/_15dp"

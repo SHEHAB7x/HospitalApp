@@ -1,10 +1,10 @@
-package com.example.hospitalapp.features.specialist.data.remote
+package com.example.hospitalapp.features.receptionist.data.remote
 
-import com.example.hospitalapp.features.specialist.data.model.ModelAllCalls
-import com.example.hospitalapp.features.specialist.data.model.ModelAllDoctors
-import com.example.hospitalapp.features.specialist.data.model.ModelCreateCall
-import com.example.hospitalapp.features.specialist.data.model.ModelLogoutCall
-import com.example.hospitalapp.features.specialist.data.model.ModelShowCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllCalls
+import com.example.hospitalapp.features.receptionist.data.model.ModelAllDoctors
+import com.example.hospitalapp.features.receptionist.data.model.ModelCreateCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelLogoutCall
+import com.example.hospitalapp.features.receptionist.data.model.ModelShowCall
 import com.example.hospitalapp.framework.network.ResponseState
 
 interface IReceptionistRemoteDataSource {

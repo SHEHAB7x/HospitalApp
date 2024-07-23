@@ -2,6 +2,8 @@ package com.example.hospitalapp.utlis
 
 class Const {
     companion object {
+        const val ACCEPT = "accept"
+        const val REJECT = "reject"
         const val MALE = "Male"
         const val FEMALE = "Female"
         const val MARRIED = "Married"

@@ -1,11 +1,11 @@
-package com.example.hospitalapp.features.specialist.presentation.viewModel
+package com.example.hospitalapp.features.receptionist.presentation.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hospitalapp.features.specialist.domain.model.CreateCall
-import com.example.hospitalapp.features.specialist.domain.usecase.CreateCallUseCase
+import com.example.hospitalapp.features.receptionist.domain.model.CreateCall
+import com.example.hospitalapp.features.receptionist.domain.usecase.CreateCallUseCase
 import com.example.hospitalapp.framework.network.ResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.presentation.adapters
+package com.example.hospitalapp.features.receptionist.presentation.adapters
 
 import android.os.Build
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hospital.R
 import com.example.hospital.databinding.ItemCallBinding
-import com.example.hospitalapp.features.specialist.domain.model.AllCalls
+import com.example.hospitalapp.features.receptionist.domain.model.AllCalls
 import com.example.hospitalapp.utlis.Const
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

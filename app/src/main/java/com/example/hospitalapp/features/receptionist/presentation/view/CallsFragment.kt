@@ -1,9 +1,7 @@
-package com.example.hospitalapp.features.specialist.presentation.view
+package com.example.hospitalapp.features.receptionist.presentation.view
 
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +13,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentCallsBinding
-import com.example.hospitalapp.features.specialist.presentation.adapters.AdapterCalls
-import com.example.hospitalapp.features.specialist.presentation.viewModel.CallsViewModel
+import com.example.hospitalapp.features.receptionist.presentation.adapters.AdapterCalls
+import com.example.hospitalapp.features.receptionist.presentation.viewModel.CallsViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint

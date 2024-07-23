@@ -1,4 +1,4 @@
-package com.example.hospitalapp.features.specialist.presentation.view
+package com.example.hospitalapp.features.receptionist.presentation.view
 
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.hospital.R
 import com.example.hospital.databinding.FragmentCreateCallBinding
-import com.example.hospitalapp.features.specialist.presentation.viewModel.CreateCallViewModel
+import com.example.hospitalapp.features.receptionist.presentation.viewModel.CreateCallViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +39,6 @@ class CreateCallFragment : Fragment() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(Const.DOCTOR_ID)
             ?.observe(viewLifecycleOwner) { id ->
                 doctorId = id
-                showToast(id.toString())
             }
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(Const.DOCTOR_NAME)
             ?.observe(viewLifecycleOwner) { name ->

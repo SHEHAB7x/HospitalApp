@@ -47,4 +47,46 @@
 
 
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAccept"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="12dp"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/green_btn"
+            android:text="@string/accept"
+            android:textSize="@dimen/_15dp"
+            app:icon="@drawable/ic_accept"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReject"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="53dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="45dp"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/orange_busy"
+            android:text="@string/busy"
+            android:textSize="@dimen/_15dp"
+            app:icon="@drawable/ic_busy"
+            />
+
+    </LinearLayout>
+
+
+
 </androidx.cardview.widget.CardView>
