@@ -11,6 +11,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object LoginUseCaseModule {
+
     @Provides
     @Singleton
     fun provideLoginUseCase(

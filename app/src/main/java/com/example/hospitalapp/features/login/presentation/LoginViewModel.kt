@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hospitalapp.features.login.data.repo.LoginRepository
 import com.example.hospitalapp.features.login.domain.models.User
+import com.example.hospitalapp.features.login.domain.repository.ILoginRepository
 import com.example.hospitalapp.features.login.domain.usecase.LoginUseCase
 import com.example.hospitalapp.framework.network.ResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel

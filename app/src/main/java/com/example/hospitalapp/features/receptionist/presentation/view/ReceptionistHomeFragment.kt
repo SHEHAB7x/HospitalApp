@@ -40,5 +40,9 @@ class ReceptionistHomeFragment : Fragment() {
                 .navigate(R.id.action_receptionistHomeFragment_to_callsFragment)
         }
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 
 }

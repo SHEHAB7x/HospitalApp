@@ -3,8 +3,9 @@ package com.example.hospitalapp.features.hr.domain.usecase
 import com.example.hospitalapp.features.hr.domain.models.RegisterNewUser
 import com.example.hospitalapp.features.hr.domain.repo.IHrRepository
 import com.example.hospitalapp.framework.network.ResponseState
+import javax.inject.Inject
 
-class RegisterNewUserUseCase(private val hrRepository: IHrRepository) {
+class RegisterNewUserUseCase @Inject constructor(private val hrRepository: IHrRepository) {
     suspend operator fun invoke(
         email: String,
         password: String,

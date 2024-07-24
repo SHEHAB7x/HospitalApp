@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -106,7 +105,7 @@
             app:boxCornerRadiusTopEnd="@dimen/corner"
             app:boxCornerRadiusTopStart="@dimen/corner"
             app:boxStrokeColor="@color/mint_green"
-            app:boxStrokeWidth=".7dp"
+            app:boxStrokeWidth=".5dp"
             app:boxStrokeWidthFocused="1dp"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="@+id/editLastName"
@@ -119,7 +118,7 @@
                 android:id="@+id/genderAutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gender"
+                android:hint="@string/gender"
                 android:inputType="none"
                 android:padding="15dp"
                 android:paddingStart="50dp" />
@@ -146,7 +145,7 @@
             app:boxCornerRadiusTopEnd="@dimen/corner"
             app:boxCornerRadiusTopStart="@dimen/corner"
             app:boxStrokeColor="@color/mint_green"
-            app:boxStrokeWidth=".7dp"
+            app:boxStrokeWidth=".5dp"
             app:boxStrokeWidthFocused="1.2dp"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="@+id/gender"
@@ -216,7 +215,7 @@
             app:boxCornerRadiusTopEnd="@dimen/corner"
             app:boxCornerRadiusTopStart="@dimen/corner"
             app:boxStrokeColor="@color/mint_green"
-            app:boxStrokeWidth=".7dp"
+            app:boxStrokeWidth=".5dp"
             app:boxStrokeWidthFocused="1.2dp"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="@+id/dob"

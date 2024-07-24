@@ -20,6 +20,8 @@ import com.example.hospital.databinding.FragmentLoginBinding
 import com.example.hospitalapp.features.login.domain.models.User
 import com.example.hospitalapp.utlis.Const
 import com.example.hospitalapp.framework.network.ResponseState
+import com.example.hospitalapp.utlis.isEmailValid
+import com.example.hospitalapp.utlis.showToast
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +29,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
     private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
@@ -138,6 +139,7 @@ class LoginFragment : Fragment() {
 
     private fun validate(email: String, password: String) {
         if (email.isEmpty()) binding.editEmail.setBackgroundResource(R.drawable.container_error)
+        else if(!email.isEmailValid()) showToast("Please enter valid email")
         else if (password.isEmpty()) binding.editPassword.setBackgroundResource(R.drawable.container_error)
         else {
             loginViewModel.loginUser(email, password)

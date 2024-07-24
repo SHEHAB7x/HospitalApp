@@ -39,4 +39,9 @@ class HrHomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

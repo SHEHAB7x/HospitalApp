@@ -28,4 +28,9 @@ class SuccessfulCallFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_successfulCallFragment_to_receptionistHomeFragment)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

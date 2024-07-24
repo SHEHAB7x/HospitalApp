@@ -40,6 +40,7 @@
     <string name="password">Password</string>
     <string name="to_continue_login_now">To Continue , Login Now</string>
     <string name="show_details">Show Details</string>
+    <string name="gender">Gender</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>

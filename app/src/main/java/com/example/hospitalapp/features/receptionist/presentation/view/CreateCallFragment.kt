@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -15,6 +14,8 @@ import com.example.hospital.databinding.FragmentCreateCallBinding
 import com.example.hospitalapp.features.receptionist.presentation.viewModel.CreateCallViewModel
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
+import com.example.hospitalapp.utlis.isEmailValid
+import com.example.hospitalapp.utlis.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +44,6 @@ class CreateCallFragment : Fragment() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(Const.DOCTOR_NAME)
             ?.observe(viewLifecycleOwner) { name ->
                 binding.selectDoctor.text = name
-
             }
         viewModel.createCallLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -82,15 +82,12 @@ class CreateCallFragment : Fragment() {
         val description = binding.editDescription.text.toString()
 
         when {
-            name.isEmpty() -> showToast("Name")
-            age.isEmpty() -> showToast("Age")
-            phone.isEmpty() -> showToast("Phone")
+            name.isEmpty() -> showToast("Enter name")
+            age.isEmpty() -> showToast("Enter age")
+            phone.isEmpty() -> showToast("Enter phone number")
+            !phone.isEmailValid() -> showToast("Please enter valid phone number")
             else -> viewModel.createCall(name, doctorId, age, phone, description)
         }
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

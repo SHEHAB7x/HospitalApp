@@ -165,4 +165,9 @@ class CaseDetailsFragment : Fragment() {
             caseDetailsViewModel.logoutCall(callId)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

@@ -21,6 +21,9 @@ import com.example.hospitalapp.features.hr.presentation.viewmodel.NewUserViewMod
 import com.example.hospitalapp.framework.database.MySharedPreferences
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.utlis.Const
+import com.example.hospitalapp.utlis.isEmailValid
+import com.example.hospitalapp.utlis.isValidPhoneNumber
+import com.example.hospitalapp.utlis.showToast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
@@ -150,9 +153,12 @@ class NewUserFragment : Fragment() {
         else if (specialist.isEmpty()) binding.specialist.setBackgroundResource(R.drawable.container_error)
         else if (birthday.isEmpty()) binding.dob.setBackgroundResource(R.drawable.container_error)
         else if (status.isEmpty()) binding.status.setBackgroundResource(R.drawable.container_error)
+        else if (phone.isEmpty()) binding.status.setBackgroundResource(R.drawable.container_error)
         else if (email.isEmpty()) binding.editEmail.setBackgroundResource(R.drawable.container_error)
         else if (address.isEmpty()) binding.editAddress.setBackgroundResource(R.drawable.container_error)
         else if (password.isEmpty()) binding.editPassword.setBackgroundResource(R.drawable.container_error)
+        else if(!email.isEmailValid()) showToast("Please Enter valid email")
+        else if(!phone.isValidPhoneNumber()) showToast("Please Enter valid phone number")
         else {
             newUserViewModel.registerNewUser(
                 email,
