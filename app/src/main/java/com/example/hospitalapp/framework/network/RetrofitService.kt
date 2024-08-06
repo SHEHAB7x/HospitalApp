@@ -1,6 +1,9 @@
 package com.example.hospitalapp.framework.network
 
+import com.example.hospitalapp.features.doctor.data.model.ModelAddNurse
 import com.example.hospitalapp.features.doctor.data.model.ModelAllCallsOfDoctor
+import com.example.hospitalapp.features.doctor.data.model.ModelAllCases
+import com.example.hospitalapp.features.doctor.data.model.ModelCaseDetails
 import com.example.hospitalapp.features.hr.data.models.ModelAllUsers
 import com.example.hospitalapp.features.hr.data.models.ModelProfileUser
 import com.example.hospitalapp.features.hr.data.models.ModelRegisterNewUser
@@ -23,35 +26,35 @@ interface RetrofitService {
     @FormUrlEncoded
     @POST("calls")
     suspend fun createCall(
-        @Field("patient_name") patientName : String,
-        @Field("doctor_id") doctorId : Int,
-        @Field("age") age : String,
-        @Field("phone") phone : String,
-        @Field("description") description : String
-    ) : ModelCreateCall
+        @Field("patient_name") patientName: String,
+        @Field("doctor_id") doctorId: Int,
+        @Field("age") age: String,
+        @Field("phone") phone: String,
+        @Field("description") description: String
+    ): ModelCreateCall
 
     @FormUrlEncoded
     @POST("login")
     suspend fun loginUser(
-        @Field("email") email : String,
+        @Field("email") email: String,
         @Field("password") password: String,
         @Field("device_token") deviceToken: String
-    ) : ModelUser
+    ): ModelUser
 
     @FormUrlEncoded
     @POST("show-profile")
     suspend fun showProfile(
-        @Field("user_id") userId : Int
-    ) : ModelProfileUser
+        @Field("user_id") userId: Int
+    ): ModelProfileUser
 
     @GET("doctors")
     suspend fun getUserByType(
-        @Query("type") type : String
+        @Query("type") type: String
     ): ModelAllUsers
 
     @GET("doctors")
     suspend fun getDoctors(
-        @Query("type") type : String
+        @Query("type") type: String
     ): ModelAllDoctors
 
     @FormUrlEncoded
@@ -72,26 +75,50 @@ interface RetrofitService {
 
     @GET("calls")
     suspend fun getCalls(
-        @Query("date") date : String
-    ) : ModelAllCalls
+        @Query("date") date: String
+    ): ModelAllCalls
 
     @GET("calls/{id}")
     suspend fun showCall(
-        @Path("id") callId : Int
+        @Path("id") callId: Int
     ): ModelShowCall
 
     @PUT("calls/{id}")
     suspend fun logoutCall(
-        @Path("id") callId : Int
+        @Path("id") callId: Int
     ): ModelLogoutCall
 
     @GET("calls")
-    suspend fun getAllCallsOfDoctor() : ModelAllCallsOfDoctor
+    suspend fun getAllCallsOfDoctor(): ModelAllCallsOfDoctor
 
     @FormUrlEncoded
     @PUT("calls-accept/{id}")
     suspend fun acceptRejectCall(
-        @Path("id") callId : Int,
-        @Field("status") status : String
-        )
+        @Path("id") callId: Int,
+        @Field("status") status: String
+    )
+
+    @GET("case")
+    suspend fun getAllCases(): ModelAllCases
+
+    @GET("case/{id}")
+    suspend fun getCaseDetails(
+        @Path("id") caseId : Int
+    ): ModelCaseDetails
+
+    @FormUrlEncoded
+    @POST("add-nurse")
+    suspend fun addNurse(
+        @Field("call_id") callId : Int,
+        @Field("user_id") nurseId : Int
+    ) : ModelAddNurse
+
+    @FormUrlEncoded
+    @POST("make-request")
+    suspend fun makeRequest(
+        @Field("call_id") callId : Int,
+        @Field("user_id") userId : Int,
+        @Field("note") note: String,
+        @Field("types[]") request: List<String>
+    ) : ModelAddNurse
 }
