@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hospitalapp.features.hr.domain.models.User
 import com.example.hospitalapp.features.hr.domain.usecase.AllUsersByTypeUseCase
+import com.example.hospitalapp.framework.database.MySharedPreferences
 import com.example.hospitalapp.framework.network.ResponseState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class EmployeeListViewModel @Inject constructor(
             try {
                 _employeeListLiveData.value = allUsersByTypeUseCase.invoke(type)
             } catch (e: Exception) {
-                _employeeListLiveData.value = e.localizedMessage?.let { ResponseState.Error(it) }
+                _employeeListLiveData.value = ResponseState.NoInternet(MySharedPreferences.getEmployeeList())
             }
         }
     }
@@ -38,7 +39,6 @@ class EmployeeListViewModel @Inject constructor(
             originalList = when(val response = allUsersByTypeUseCase.invoke("All")){
                 is ResponseState.Success ->
                     response.data
-
                 else -> null
             }
 

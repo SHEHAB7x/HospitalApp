@@ -19,4 +19,5 @@ object LoginUseCaseModule {
     ): LoginUseCase {
         return LoginUseCase(repository)
     }
+
 }

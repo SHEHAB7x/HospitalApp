@@ -3,6 +3,9 @@ package com.example.hospitalapp.framework.database
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.hospitalapp.features.hr.domain.models.User
+import com.example.hospitalapp.features.hr.presentation.adapters.AdapterEmployeeList
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 object MySharedPreferences {
     private var mAppContext: Context? = null
@@ -19,9 +22,24 @@ object MySharedPreferences {
     private const val USER_ADDRESS = "address"
     private const val USER_BIRTHDAY = "birthday"
     private const val USER_STATUS = "status"
+    private const val USER_EMPLOYEE_KEY = "employee_list"
 
     fun init(appContext: Context?) {
         mAppContext = appContext
+    }
+
+    fun saveEmployeeList(employeeList: List<User>){
+        val json = Gson().toJson(employeeList)
+        getSharedPreferences().edit().putString(USER_EMPLOYEE_KEY,json).apply()
+    }
+
+    fun getEmployeeList(): List<User>{
+        val json = getSharedPreferences().getString(USER_EMPLOYEE_KEY,null)
+        return if(json != null){
+            val type = object : TypeToken<List<User>>(){}.type
+            Gson().fromJson(json,type)
+        }else
+            return emptyList()
     }
 
     private fun getSharedPreferences(): SharedPreferences {

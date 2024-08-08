@@ -74,7 +74,7 @@
                 android:name="id"
                 app:argType="integer" />
             <argument
-                android:name="fromEmpList"
+                android:name="@string/fromemplist"
                 app:argType="string" />
         </action>
         <action
@@ -231,9 +231,30 @@
 
     <fragment
         android:id="@+id/selectDoctorFragment"
-        android:name="com.example.hospitalapp.features.receptionist.presentation.view.SelectDoctorFragment"
-        android:label="fragment_select_doctor"
-        tools:layout="@layout/fragment_select_doctor" />
+        android:name="com.example.hospitalapp.features.common.SelectUserFragment"
+        android:label="SelectDoctorFragment"
+        tools:layout="@layout/fragment_select_user">
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_selectDoctorFragment_to_medicalRecordFragment"
+            app:destination="@id/medicalRecordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="caseId"
+                app:argType="integer" />
+            <argument
+                android:name="analysisId"
+                app:argType="integer"/>
+        </action>
+    </fragment>
+
 
     <fragment
         android:id="@+id/successfulCallFragment"
@@ -298,10 +319,108 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_doctorHomeFragment_to_casesFragment"
+            app:destination="@id/casesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/doctorCallsFragment"
         android:name="com.example.hospitalapp.features.doctor.presentation.view.DoctorCallsFragment"
         android:label="fragment_doctor_calls"
         tools:layout="@layout/fragment_doctor_calls" />
+    <fragment
+        android:id="@+id/casesFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.CasesFragment"
+        android:label="fragment_cases"
+        tools:layout="@layout/fragment_cases" >
+        <action
+            android:id="@+id/action_casesFragment_to_tabLayoutCaeDetailsFragment"
+            app:destination="@id/tabLayoutCaeDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="caseId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/doctorCaseDetailsFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.DoctorCaseDetailsFragment"
+        android:label="fragment_doctor_case_details"
+        tools:layout="@layout/fragment_doctor_case_details">
+        <argument
+            android:name="caseId"
+            app:argType="integer" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/medicalRecordFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.CreateMedicalRecordFragment"
+        android:label="fragment_medical_record"
+        tools:layout="@layout/fragment_medical_record" >
+        <action
+            android:id="@+id/action_medicalRecordFragment_to_tabLayoutCaeDetailsFragment"
+            app:destination="@id/tabLayoutCaeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalMeasurementFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.CreateMedicalMeasurementFragment"
+        android:label="fragment_medical_measurement"
+        tools:layout="@layout/fragment_medical_measurement" />
+    <fragment
+        android:id="@+id/medicalMeasurementDetialsFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.MedicalMeasurementDetailsFragment"
+        android:label="fragment_medical_measurement_detials"
+        tools:layout="@layout/fragment_medical_measurement_detials" />
+    <fragment
+        android:id="@+id/medicalRecordDetialsFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.MedicalRecordDetailsFragment"
+        android:label="fragment_medical_record_detials"
+        tools:layout="@layout/fragment_medical_record_detials" />
+    <fragment
+        android:id="@+id/tabLayoutCaeDetailsFragment"
+        android:name="com.example.hospitalapp.features.doctor.presentation.view.TabLayoutCaeDetailsFragment"
+        android:label="fragment_tab_layout_cae_details"
+        tools:layout="@layout/fragment_tab_layout_cae_details" >
+        <action
+            android:id="@+id/action_tabLayoutCaeDetailsFragment_to_selectDoctorFragment"
+            app:destination="@id/selectDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="caseId"
+                app:argType="integer" />
+
+            <argument
+                android:name="type"
+                app:argType="string"
+                />
+        </action>
+        <action
+            android:id="@+id/action_tabLayoutCaeDetailsFragment_to_medicalMeasurementFragment"
+            app:destination="@id/medicalMeasurementFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="caseId"
+                app:argType="integer" />
+            <argument
+                android:name="nurseId"
+                app:argType="integer"/>
+        </action>
+    </fragment>
+
 </navigation>

@@ -12,15 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/arrow_back"
+        android:src="@drawable/ic_x"
+        app:layout_constraintBottom_toBottomOf="@+id/pageTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/pageTitle" />
 
 
     <TextView
-        android:id="@+id/textEmp"
+        android:id="@+id/pageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -42,12 +42,14 @@
         android:drawablePadding="15dp"
         android:gravity="center_vertical"
         android:maxLines="1"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
         android:hint="@string/search_for_doctors"
         android:paddingStart="17dp"
         android:textColor="#2C2C2C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmp" />
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerDoctors"
@@ -58,6 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search"
+        app:layout_constraintBottom_toTopOf="@id/btnSelect"
         tools:listitem="@layout/item_doctor" />
 
     <com.google.android.material.button.MaterialButton

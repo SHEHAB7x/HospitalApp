@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
                     showError(state.message)
                     Log.e("TAG", "observeLoginResult: ${state.message}")
                 }
-                ResponseState.Loading -> showLoadingIndicator()
+                else -> showLoadingIndicator()
             }
         }
     }

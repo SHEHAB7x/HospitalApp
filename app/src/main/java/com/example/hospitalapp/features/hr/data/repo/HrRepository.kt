@@ -8,6 +8,7 @@ import com.example.hospitalapp.features.hr.domain.models.RegisterNewUser
 import com.example.hospitalapp.features.hr.domain.models.User
 import com.example.hospitalapp.features.hr.domain.models.UserProfile
 import com.example.hospitalapp.features.hr.domain.repo.IHrRepository
+import com.example.hospitalapp.framework.database.MySharedPreferences
 import com.example.hospitalapp.framework.network.ResponseState
 import javax.inject.Inject
 
@@ -28,8 +29,11 @@ class HrRepository @Inject constructor(
 
     override suspend fun getAllEmployee(type: String): ResponseState<List<User>> {
         return when (val response = hrRemoteDataSource.getAllUsers(type)) {
-            is ResponseState.Success ->
-                ResponseState.Success(response.data.toDomain())
+            is ResponseState.Success -> {
+                val empList = response.data.toDomain()
+                MySharedPreferences.saveEmployeeList(empList)
+                ResponseState.Success(empList)
+            }
 
             is ResponseState.Error ->
                 ResponseState.Error(response.message)

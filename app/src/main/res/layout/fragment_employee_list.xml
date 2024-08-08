@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="30dp"
         android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
 
     <TextView
@@ -124,7 +124,7 @@
                 android:gravity="center"
                 android:paddingHorizontal="13dp"
                 android:paddingVertical="8dp"
-                android:text="HR Employee"
+                android:text="@string/hr_employee"
                 android:textSize="12sp" />
 
             <TextView
@@ -137,7 +137,7 @@
                 android:gravity="center"
                 android:paddingHorizontal="13dp"
                 android:paddingVertical="8dp"
-                android:text="Analysis Employee"
+                android:text="@string/analysis_employee"
                 android:textSize="12sp" />
         </LinearLayout>
     </HorizontalScrollView>

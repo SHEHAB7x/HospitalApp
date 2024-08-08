@@ -1,5 +1,6 @@
 package com.example.hospitalapp.features.login.data.repo
 
+import android.util.Log
 import com.example.hospitalapp.features.login.data.datasource.local.ILoginLocalDataSource
 import com.example.hospitalapp.features.login.data.datasource.local.LoginLocalDataSource
 import com.example.hospitalapp.features.login.data.datasource.mappers.toDomain
@@ -14,6 +15,7 @@ class LoginRepository @Inject constructor(
     private val remoteDataSource: ILoginRemoteDataSource,
     private val localDataSource: ILoginLocalDataSource
 ) : ILoginRepository {
+
     override suspend fun login(
         email: String,
         password: String,
@@ -26,6 +28,7 @@ class LoginRepository @Inject constructor(
             }
 
             is ResponseState.Error -> {
+                Log.e("TAG", "repositoryLogin: ${response.message}", )
                 ResponseState.Error(response.message)
             }
 

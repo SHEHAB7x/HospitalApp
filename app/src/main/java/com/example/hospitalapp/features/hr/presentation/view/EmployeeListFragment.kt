@@ -90,9 +90,12 @@ class EmployeeListFragment : Fragment() {
                     binding.employeeRecycler.adapter = adapterEmployeeList
                 }
 
-                is ResponseState.Error -> {
+                is ResponseState.NoInternet -> {
                     binding.loading.visibility = View.GONE
-                    Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                    listUsers = state.data
+                    adapterEmployeeList.list = listUsers
+                    binding.employeeRecycler.adapter = adapterEmployeeList
+                    Toast.makeText(requireContext(), "No Internet", Toast.LENGTH_SHORT).show()
                 }
 
                 else -> {

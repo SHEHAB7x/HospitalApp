@@ -3,12 +3,14 @@ package com.example.hospitalapp.features.receptionist.presentation.view
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.os.Build
 import  android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -28,6 +30,7 @@ class CaseDetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val caseDetailsViewModel: CaseDetailsViewModel by viewModels()
     private var callId: Int = 0
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +47,7 @@ class CaseDetailsFragment : Fragment() {
         caseDetailsViewModel.showCall(callId)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun observers() {
         caseDetailsViewModel.showCallLiveData.observe(viewLifecycleOwner) { result ->
             when (result) {
@@ -57,7 +61,7 @@ class CaseDetailsFragment : Fragment() {
                     showToast(result.message)
                 }
 
-                is ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
+                else -> binding.loading.visibility = View.VISIBLE
             }
         }
 
@@ -68,15 +72,13 @@ class CaseDetailsFragment : Fragment() {
                     binding.statusImage.setImageResource(R.drawable.ic_done)
                     binding.status.text = getString(R.string.finished)
                     handleLogoutBtn()
-
                 }
 
                 is ResponseState.Error -> {
                     binding.loading.visibility = View.GONE
-                    showToast(result.message)
+                    showToast(result.message.toString())
                 }
-
-                is ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
+                else -> binding.loading.visibility = View.VISIBLE
             }
         }
     }
@@ -133,6 +135,7 @@ class CaseDetailsFragment : Fragment() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setData(call: ShowCall) {
         binding.name.text = call.patientName
         binding.age.text = "${call.age} years"

@@ -41,6 +41,25 @@
     <string name="to_continue_login_now">To Continue , Login Now</string>
     <string name="show_details">Show Details</string>
     <string name="gender">Gender</string>
+    <string name="cases">Cases</string>
+    <string name="end_case">End Case</string>
+    <string name="date">Date</string>
+    <string name="status">Status</string>
+    <string name="doctor">Doctor</string>
+    <string name="nurse">Nurse</string>
+    <string name="select_nurse">Select Nurse</string>
+    <string name="search_for_nurse">Search for Nurse</string>
+    <string name="fromcreatecall">fromCreateCall</string>
+    <string name="hr_employee">HR Employee</string>
+    <string name="analysis_employee">Analysis Employee</string>
+    <string name="please_select_nurse">Please Select Nurse</string>
+    <string name="medical_record">Medical record</string>
+    <string name="request">Request</string>
+    <string name="medical_measurement">Medical Measurement</string>
+    <string name="select_analysis_employee">Select Analysis employee</string>
+    <string name="search_for_analysis_employee">Search for Analysis employee</string>
+    <string name="specialist_nurse">Specilaist Nurse</string>
+    <string name="specialist_analysis_employee">Specialist - Analysis employee</string>
 
     <string-array name="dropdown_items">
         <item>Male</item>

@@ -50,7 +50,7 @@ class NewUserFragment : Fragment() {
             when (state) {
                 is ResponseState.Success -> navigateToHome()
                 is ResponseState.Error -> showError(state.message)
-                ResponseState.Loading -> showLoadingIndicator()
+                else -> showLoadingIndicator()
             }
         })
     }

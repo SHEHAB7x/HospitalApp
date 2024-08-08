@@ -88,6 +88,11 @@ interface RetrofitService {
         @Path("id") callId: Int
     ): ModelLogoutCall
 
+    @PUT("calls/{id}")
+    suspend fun logoutDoctorCall(
+        @Path("id") callId: Int
+    ): com.example.hospitalapp.features.doctor.data.model.ModelLogoutCall
+
     @GET("calls")
     suspend fun getAllCallsOfDoctor(): ModelAllCallsOfDoctor
 

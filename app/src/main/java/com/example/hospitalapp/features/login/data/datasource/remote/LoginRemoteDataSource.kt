@@ -1,6 +1,6 @@
 package com.example.hospitalapp.features.login.data.datasource.remote
 
-import com.example.hospitalapp.features.login.data.datasource.local.LoginLocalDataSource
+import android.util.Log
 import com.example.hospitalapp.features.login.data.model.ModelUser
 import com.example.hospitalapp.framework.network.ResponseState
 import com.example.hospitalapp.framework.network.RetrofitService
@@ -13,6 +13,7 @@ class LoginRemoteDataSource @Inject constructor(private val retrofitService: Ret
         return if(response.status == 1){
             ResponseState.Success(response)
         }else{
+            Log.e("TAG", "LoginRemoteDataSource ${response.message}")
             ResponseState.Error(response.message)
         }
     }

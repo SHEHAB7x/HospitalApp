@@ -8,10 +8,10 @@ import com.example.hospitalapp.framework.database.MySharedPreferences
 import com.example.hospitalapp.framework.network.ResponseState
 import javax.inject.Inject
 
-class LoginLocalDataSource @Inject constructor(private val sharedPreferences: SharedPreferences ) : ILoginLocalDataSource{
-   override suspend fun cacheLoginData(user: User){
+class LoginLocalDataSource @Inject constructor() : ILoginLocalDataSource {
+    override suspend fun cacheLoginData(user: User) {
         MySharedPreferences.setUserType(user.type ?: "")
-        MySharedPreferences.setUserName(user.firstName+" "+user.lastName)
+        MySharedPreferences.setUserName(user.firstName + " " + user.lastName)
         MySharedPreferences.setUserId(user.id)
         MySharedPreferences.setUserPhone(user.mobile)
         MySharedPreferences.setUserEmail(user.email)

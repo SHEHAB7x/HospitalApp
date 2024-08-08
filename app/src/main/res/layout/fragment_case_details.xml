@@ -29,11 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
         android:importantForAccessibility="no"
         android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="@+id/textEmp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textEmp" />
 
 
     <TextView
@@ -53,10 +53,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Patient Name"
-        android:textColor="@color/gray"
+        android:textColor="@color/text_gray"
         android:textSize="@dimen/_15dp"
-        android:fontFamily="@font/poppins_semibold"
 
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/btnBack" />
@@ -66,10 +66,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_regular"
 
         android:text="Age"
-        android:textColor="@color/gray"
+        android:textColor="@color/text_gray"
         android:textSize="@dimen/_15dp"
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/patentNameTxt" />
@@ -78,10 +78,10 @@
         android:id="@+id/phoneNumberTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Phone Number"
-        android:textColor="@color/gray"
+        android:textColor="@color/text_gray"
         android:textSize="@dimen/_15dp"
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/ageTxt" />
@@ -91,9 +91,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Date"
-        android:textColor="@color/gray"
-        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/text_gray"
 
         android:textSize="@dimen/_15dp"
         app:layout_constraintStart_toStartOf="@id/startLine"
@@ -104,10 +104,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="Status"
-        android:textColor="@color/gray"
+        android:textColor="@color/text_gray"
         android:textSize="@dimen/_15dp"
-        android:fontFamily="@font/poppins_semibold"
 
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/dateTxt" />
@@ -117,9 +117,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_regular"
         android:text="Case Description"
-        android:textColor="@color/gray"
+        android:textColor="@color/text_gray"
         android:textSize="@dimen/_15dp"
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/statusTxt" />
@@ -130,43 +130,42 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
-        android:layout_marginTop="30dp"
         android:textSize="@dimen/_15dp"
-        app:layout_constraintEnd_toEndOf="@id/endLine"
-        app:layout_constraintTop_toBottomOf="@+id/textEmp" />
+        app:layout_constraintBottom_toBottomOf="@+id/patentNameTxt"
+        app:layout_constraintEnd_toStartOf="@+id/endLine"
+        app:layout_constraintTop_toTopOf="@id/patentNameTxt" />
 
     <TextView
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
         android:textSize="@dimen/_15dp"
-
-        app:layout_constraintEnd_toEndOf="@id/endLine"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintBottom_toBottomOf="@+id/ageTxt"
+        app:layout_constraintEnd_toStartOf="@+id/endLine"
+        app:layout_constraintTop_toTopOf="@id/ageTxt"  />
 
     <TextView
         android:id="@+id/phoneNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
         android:textSize="@dimen/_15dp"
-        app:layout_constraintEnd_toEndOf="@id/endLine"
-        app:layout_constraintTop_toBottomOf="@+id/age" />
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTxt"
+        app:layout_constraintEnd_toStartOf="@+id/endLine"
+        app:layout_constraintTop_toTopOf="@id/phoneNumberTxt"  />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:textSize="@dimen/_15dp"
-        app:layout_constraintEnd_toEndOf="@id/endLine"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+        app:layout_constraintBottom_toBottomOf="@+id/dateTxt"
+        app:layout_constraintEnd_toStartOf="@+id/endLine"
+        app:layout_constraintTop_toTopOf="@id/dateTxt"  />
 
     <ImageView
         android:id="@+id/statusImage"
@@ -174,29 +173,28 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="@+id/status"
-        app:layout_constraintEnd_toEndOf="@id/endLine"
-        app:layout_constraintTop_toTopOf="@+id/status" />
+        app:layout_constraintEnd_toStartOf="@+id/endLine"
+        app:layout_constraintTop_toTopOf="@id/status"  />
 
     <TextView
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
         android:layout_marginEnd="15dp"
         android:fontFamily="@font/poppins_regular"
-        android:text=""
         android:textColor="@color/black"
         android:textSize="@dimen/_15dp"
-        app:layout_constraintEnd_toStartOf="@id/statusImage"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintBottom_toBottomOf="@+id/statusTxt"
+        app:layout_constraintEnd_toStartOf="@+id/statusImage"
+        app:layout_constraintTop_toTopOf="@id/statusTxt"  />
 
     <TextView
         android:id="@+id/caseDescription"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:textColor="@color/black"
         android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
         android:textSize="@dimen/_15dp"
         app:layout_constraintStart_toStartOf="@id/startLine"
         app:layout_constraintTop_toBottomOf="@+id/caseDescriptionTxt" />
@@ -222,8 +220,8 @@
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         android:indeterminateTint="@color/mint_green"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

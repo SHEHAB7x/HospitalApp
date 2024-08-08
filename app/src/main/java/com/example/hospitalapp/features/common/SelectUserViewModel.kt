@@ -1,10 +1,9 @@
-package com.example.hospitalapp.features.receptionist.presentation.viewModel
+package com.example.hospitalapp.features.common
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hospitalapp.features.hr.domain.models.User
 import com.example.hospitalapp.features.receptionist.domain.model.AllDoctors
 import com.example.hospitalapp.features.receptionist.domain.usecase.SelectDoctorUseCase
 import com.example.hospitalapp.framework.network.ResponseState
@@ -14,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SelectDoctorViewModel @Inject constructor(private val selectDoctorUseCase: SelectDoctorUseCase) : ViewModel() {
+class SelectUserViewModel @Inject constructor(private val selectDoctorUseCase: SelectDoctorUseCase) : ViewModel() {
     private val _selectDoctorLiveData = MutableLiveData<ResponseState<List<AllDoctors>>>()
     var selectDoctorLiveData : LiveData<ResponseState<List<AllDoctors>>> = _selectDoctorLiveData
 

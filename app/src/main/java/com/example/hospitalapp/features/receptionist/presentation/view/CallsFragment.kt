@@ -58,11 +58,11 @@ class CallsFragment : Fragment() {
                 }
 
                 is ResponseState.Error -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
                     binding.loading.visibility = View.GONE
                 }
 
-                is ResponseState.Loading -> binding.loading.visibility = View.VISIBLE
+                else -> binding.loading.visibility = View.VISIBLE
             }
         }
     }

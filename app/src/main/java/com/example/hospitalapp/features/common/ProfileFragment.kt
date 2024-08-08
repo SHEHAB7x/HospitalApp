@@ -67,7 +67,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 is ResponseState.Error -> showError(state.message)
-                is ResponseState.Loading -> loading()
+                else -> loading()
             }
         }
     }

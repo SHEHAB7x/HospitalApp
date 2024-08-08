@@ -3,7 +3,7 @@
 
     <font
         android:fontStyle="normal"
-        android:fontWeight="600"
+        android:fontWeight="100"
         android:font="@font/poppins_semibold"/>
 
     <font

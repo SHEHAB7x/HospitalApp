@@ -1,5 +1,6 @@
 package com.example.hospitalapp.features.login.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,9 +29,14 @@ class LoginViewModel @Inject constructor(
                     is ResponseState.Success -> {
                         _loginState.value = response
                     }
-                    else -> _loginState.value = response
+                    is ResponseState.Error ->{
+                        Log.e("TAG", "LoginViewModelError: ${response.message}", )
+                        _loginState.value = response
+                    }
+                    else -> _loginState.value = ResponseState.Loading
                 }
             } catch (e: Exception) {
+                Log.e("TAG", "LoginViewModelCatch: ${e.message}", )
                 _loginState.value = e.localizedMessage?.let { ResponseState.Error(it) }
             }
         }

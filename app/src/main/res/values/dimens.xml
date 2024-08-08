@@ -3,4 +3,6 @@
     <dimen name="_15dp">14sp</dimen>
     <dimen name="margin_horizontal">18dp</dimen>
     <dimen name="margin_top">25dp</dimen>
+    <dimen name="_15sp">15sp</dimen>
+    <dimen name="_12sp">12sp</dimen>
 </resources>
