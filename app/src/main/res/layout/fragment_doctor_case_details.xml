@@ -1,0 +1,276 @@
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.hospitalapp.features.receptionist.presentation.view.CaseDetailsFragment">
+
+    <TextView
+        android:id="@+id/patentNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/patient_name"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ageTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/age"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patentNameTxt" />
+
+    <TextView
+        android:id="@+id/phoneNumberTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/phone_number"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageTxt" />
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/date"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTxt" />
+
+    <TextView
+        android:id="@+id/doctorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/doctor"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTxt" />
+
+    <TextView
+        android:id="@+id/nurseTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/nurse"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorTxt" />
+
+    <TextView
+        android:id="@+id/statusTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/status"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nurseTxt" />
+
+
+    <TextView
+        android:id="@+id/caseDescriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/case_description"
+        android:textColor="@color/text_gray"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusTxt" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/patentNameTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/patentNameTxt" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@id/ageTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ageTxt" />
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumberTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phoneNumberTxt" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateTxt" />
+
+    <TextView
+        android:id="@+id/doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/doctorTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/doctorTxt" />
+
+    <TextView
+        android:id="@+id/nurse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nurseTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nurseTxt" />
+
+    <ImageView
+        android:id="@+id/statusImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="@+id/status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/status" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/statusTxt"
+        app:layout_constraintEnd_toStartOf="@id/statusImage"
+        app:layout_constraintTop_toTopOf="@id/statusTxt" />
+
+    <TextView
+        android:id="@+id/caseDescription"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="4"
+        android:paddingEnd="50dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caseDescriptionTxt" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddNurse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:background="@drawable/btn_request"
+        android:fontFamily="@font/poppins_regular"
+        android:paddingStart="40dp"
+        android:paddingEnd="16dp"
+        android:text="Add Nurse"
+        app:layout_constraintEnd_toStartOf="@+id/btnRequest"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add"
+            android:layout_marginEnd="85dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAddNurse"
+            app:layout_constraintEnd_toEndOf="@+id/btnAddNurse"
+            app:layout_constraintStart_toStartOf="@+id/btnAddNurse"
+            app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal" />
+
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/btn_request"
+        android:fontFamily="@font/poppins_regular"
+        android:paddingStart="40dp"
+        android:paddingEnd="16dp"
+        android:text="@string/request"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAddNurse"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add"
+            android:layout_marginEnd="75dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRequest"
+            app:layout_constraintEnd_toEndOf="@+id/btnRequest"
+            app:layout_constraintStart_toStartOf="@+id/btnRequest"
+            app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/mint_green"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

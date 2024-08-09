@@ -1,0 +1,146 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context="com.example.hospitalapp.features.doctor.presentation.view.MedicalMeasurementDetailsFragment">
+
+    <RelativeLayout
+        android:id="@+id/profileTab"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/prof_pic" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/profileImage"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/profileName"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/specialist_nurse"
+            android:textColor="@color/mint_green"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/profileName"
+            app:layout_constraintTop_toBottomOf="@+id/profileName" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/caseDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_regular"
+        android:maxLines="3"
+        android:paddingEnd="50dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileTab" />
+
+    <TextView
+        android:id="@+id/medicalMeasurement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical measurement"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintTop_toBottomOf="@id/caseDescription"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/bloodDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dot"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/medicalMeasurement"
+        app:layout_constraintStart_toStartOf="@id/medicalMeasurement"
+        />
+    <TextView
+        android:id="@+id/txtBloodPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blood pressure"
+        android:layout_marginStart="5dp"
+        android:textSize="@dimen/_12sp"
+        android:fontFamily="@font/poppins_medium"
+        app:layout_constraintTop_toTopOf="@id/bloodDot"
+        app:layout_constraintBottom_toBottomOf="@id/bloodDot"
+        app:layout_constraintStart_toEndOf="@id/bloodDot"
+        />
+
+    <ImageView
+        android:id="@+id/bloodDot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dot"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/bloodDot"
+        app:layout_constraintStart_toStartOf="@id/bloodDot"
+        />
+    <TextView
+        android:id="@+id/txtSugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sugar Analysis"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginStart="5dp"
+        android:textSize="@dimen/_12sp"
+        app:layout_constraintTop_toTopOf="@id/bloodDot2"
+        app:layout_constraintBottom_toBottomOf="@id/bloodDot2"
+        app:layout_constraintStart_toEndOf="@id/bloodDot2"
+        />
+
+    <TextView
+        android:id="@+id/bloodPresssure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtBloodPressure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtBloodPressure" />
+
+    <TextView
+        android:id="@+id/Sugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtSugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtSugar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

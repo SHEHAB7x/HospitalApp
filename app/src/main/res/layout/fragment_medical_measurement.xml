@@ -1,0 +1,131 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.hospitalapp.features.receptionist.presentation.view.CaseDetailsFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".95" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_x"
+        app:layout_constraintBottom_toBottomOf="@+id/textEmp"
+        app:layout_constraintStart_toStartOf="@id/startLine"
+        app:layout_constraintTop_toTopOf="@+id/textEmp" />
+
+
+    <TextView
+        android:id="@+id/textEmp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/medical_measurement"
+        android:textSize="@dimen/text_sub_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="@id/endLine"
+        app:layout_constraintStart_toStartOf="@id/startLine"
+        app:layout_constraintTop_toBottomOf="@+id/textEmp"
+        tools:listitem="@layout/item_measurement" />
+
+
+    <EditText
+        android:id="@+id/editAddMeasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edit_medical"
+        android:hint="Add measurement"
+        android:maxWidth="161dp"
+        android:maxHeight="44dp"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:paddingStart="15dp"
+        android:paddingEnd="50dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_gray"
+        android:textSize="@dimen/_12sp"
+        app:layout_constraintStart_toStartOf="@+id/startLine"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <ImageView
+        android:id="@+id/btnAddMeasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_add_gray"
+        app:layout_constraintBottom_toBottomOf="@id/editAddMeasure"
+        app:layout_constraintEnd_toEndOf="@id/editAddMeasure"
+        app:layout_constraintTop_toTopOf="@id/editAddMeasure" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/mint_green"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Send"
+        app:cornerRadius="@dimen/corner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endLine"
+        app:layout_constraintStart_toStartOf="@id/startLine" />
+
+    <EditText
+        android:id="@+id/editNote"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent=".15"
+        android:layout_marginTop="30dp"
+        android:hint="Add Note"
+        android:textSize="@dimen/_15dp"
+        android:padding="15dp"
+        android:gravity="top"
+        android:maxLines="4"
+        app:layout_constraintEnd_toEndOf="@id/endLine"
+        android:background="@drawable/edit_note"
+        app:layout_constraintStart_toStartOf="@+id/startLine"
+        app:layout_constraintTop_toBottomOf="@+id/editAddMeasure" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/mint_green"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
