@@ -20,4 +20,6 @@ abstract class DoctorModule {
     @Binds
     @Singleton
     abstract fun bindRemoteDataSource(remoteDataSource: DoctorRemoteDataSource) : IDoctorRemoteDataSource
+
+
 }

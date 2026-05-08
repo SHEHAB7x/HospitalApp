@@ -26,7 +26,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): RetrofitService {
+    fun provideRetrofit(): Retrofit {
         val client = OkHttpClient.Builder()
             .connectTimeout(50, TimeUnit.SECONDS)
             .writeTimeout(150, TimeUnit.SECONDS)
@@ -48,15 +48,19 @@ object AppModule {
                     response.code
                     return response
                 }
-            })
-            .build()
+            }).build()
 
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .baseUrl(BASE_URL)
             .build()
-            .create(RetrofitService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofitService(retrofit: Retrofit): RetrofitService {
+        return retrofit.create(RetrofitService::class.java)
     }
 
     @Provides
@@ -64,7 +68,5 @@ object AppModule {
     fun provideSharedPreferences(@ApplicationContext appContext: Context): SharedPreferences {
         return appContext.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE)
     }
-
-
 
 }

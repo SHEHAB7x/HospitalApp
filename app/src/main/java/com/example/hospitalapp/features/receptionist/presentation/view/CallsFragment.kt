@@ -102,8 +102,7 @@ class CallsFragment : Fragment() {
             val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val displayFormatter = DateTimeFormatter.ofPattern("dd . MM . yyyy")
 
-            val selectedDate =
-                Instant.ofEpochMilli(selection).atZone(ZoneId.systemDefault()).toLocalDate()
+            val selectedDate = Instant.ofEpochMilli(selection).atZone(ZoneId.systemDefault()).toLocalDate()
 
             callsViewModel.getAllCalls(selectedDate.format(dateFormatter))
             binding.dateOfCall.text = selectedDate.format(displayFormatter)

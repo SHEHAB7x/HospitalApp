@@ -1,8 +1,10 @@
 package com.example.hospitalapp.features.hr.presentation.view
 
 import android.app.DatePickerDialog
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -24,7 +27,11 @@ import com.example.hospitalapp.utlis.Const
 import com.example.hospitalapp.utlis.isEmailValid
 import com.example.hospitalapp.utlis.isValidPhoneNumber
 import com.example.hospitalapp.utlis.showToast
+import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 @AndroidEntryPoint
@@ -33,6 +40,7 @@ class NewUserFragment : Fragment() {
     private val binding get() = _binding!!
     private val newUserViewModel: NewUserViewModel by viewModels()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -108,30 +116,57 @@ class NewUserFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun onClicks() {
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
-        binding.btnCreateNewUser.setOnClickListener {
-            validate()
-        }
-        binding.dob.setOnClickListener {
-            dataPicker()
+        binding.apply {
+            dob.setOnClickListener {
+                dataPicker()
+            }
+            btnCreateNewUser.setOnClickListener {
+                validate()
+            }
+            btnBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            var isPasswordVisible = false
+            iconEye.setOnClickListener {
+                isPasswordVisible = !isPasswordVisible
+                updateVisibility(isPasswordVisible)
+            }
         }
     }
 
-    private fun dataPicker() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
+    private fun updateVisibility(isVisible : Boolean){
+        when{
+            isVisible -> {
+                binding.editPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                binding.iconEye.setImageResource(R.drawable.ic_eye_off)
+            }
+            else -> {
+                binding.editPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.iconEye.setImageResource(R.drawable.ic_eye)
+            }
+        }
+    }
 
-        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
-            val selectedDate = "${selectedYear}-${selectedMonth + 1}-${selectedDay}"
-            binding.dob.text = selectedDate
-        }, year, month, day)
-        datePickerDialog.show()
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun dataPicker() {
+
+        val builder = MaterialDatePicker.Builder.datePicker()
+        builder.setTitleText("Select date")
+        builder.setTheme(R.style.CustomDatePickerTheme)
+        val materialDatePicker = builder.build()
+
+        materialDatePicker.show(childFragmentManager, "DATE_PICKER")
+
+        materialDatePicker.addOnPositiveButtonClickListener { selection ->
+
+            val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            val displayFormatter = DateTimeFormatter.ofPattern("dd . MM . yyyy")
+
+            val selectedDate = Instant.ofEpochMilli(selection).atZone(ZoneId.systemDefault()).toLocalDate()
+            binding.dob.text = selectedDate.format(dateFormatter)
+        }
     }
 
     private fun validate() {
@@ -146,6 +181,7 @@ class NewUserFragment : Fragment() {
         val address = binding.editAddress.text.toString()
         val password = binding.editPassword.text.toString()
         val type = MySharedPreferences.getUserType()
+
 
         if (firstName.isEmpty()) binding.editFirstName.setBackgroundResource(R.drawable.container_error)
         else if (lastName.isEmpty()) binding.editLastName.setBackgroundResource(R.drawable.container_error)

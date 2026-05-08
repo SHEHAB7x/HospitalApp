@@ -33,7 +33,6 @@ class Const {
         const val FAILED = "Failed"
 
         const val TYPE = "type"
-        const val BOTTOM_SHEET = "BottomSheetDialog"
         const val RECORD = "REC"
         const val MEASUREMENT = "MEASURE"
 

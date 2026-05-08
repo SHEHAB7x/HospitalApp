@@ -72,6 +72,7 @@ class LoginFragment : Fragment() {
             Const.HR -> R.id.action_loginFragment_to_hrHomeFragment
             Const.RECEPTIONIST -> R.id.action_loginFragment_to_receptionistHomeFragment
             Const.DOCTOR -> R.id.action_loginFragment_to_doctorHomeFragment
+            Const.NURSE -> R.id.action_loginFragment_to_nurseHomeFragment
             else -> null
         }
         action?.let { findNavController().navigate(it) } ?: run {

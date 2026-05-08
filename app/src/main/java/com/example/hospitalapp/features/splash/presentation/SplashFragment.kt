@@ -19,9 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
-
     private var animator: ValueAnimator? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +42,7 @@ class SplashFragment : Fragment() {
                             MySharedPreferences.getUserType() == Const.HR -> navController.navigate(R.id.action_splashFragment_to_hrHomeFragment)
                             MySharedPreferences.getUserType() == Const.RECEPTIONIST -> navController.navigate(R.id.action_splashFragment_to_receptionistHomeFragment)
                             MySharedPreferences.getUserType() == Const.DOCTOR -> navController.navigate(R.id.action_splashFragment_to_doctorHomeFragment)
+                            MySharedPreferences.getUserType() == Const.NURSE -> navController.navigate(R.id.action_splashFragment_to_nurseHomeFragment)
                             else -> navController.navigate(R.id.action_splashFragment_to_loginFragment)
                         }
                     }

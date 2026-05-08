@@ -1,9 +1,7 @@
 package com.example.hospitalapp.features.hr.data.repo
 
-import com.example.hospitalapp.features.hr.data.datasource.HrRemoteDataSource
 import com.example.hospitalapp.features.hr.data.datasource.IHrRemoteDataSource
 import com.example.hospitalapp.features.hr.data.mapper.toDomain
-import com.example.hospitalapp.features.hr.data.models.ModelRegisterNewUser
 import com.example.hospitalapp.features.hr.domain.models.RegisterNewUser
 import com.example.hospitalapp.features.hr.domain.models.User
 import com.example.hospitalapp.features.hr.domain.models.UserProfile

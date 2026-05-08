@@ -177,7 +177,14 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/my_nav"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_nurseHomeFragment"
+            app:destination="@id/nurseHomeFragment"
+            app:popUpTo="@id/my_nav"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -206,6 +213,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_nurseHomeFragment"
+            app:destination="@id/nurseHomeFragment" />
     </fragment>
 
     <fragment
@@ -422,5 +432,35 @@
                 app:argType="integer"/>
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/nurseHomeFragment"
+        android:name="com.example.hospitalapp.features.nurse.presentation.view.NurseHomeFragment"
+        android:label="fragment_nurse_home"
+        tools:layout="@layout/fragment_nurse_home" >
+        <action
+            android:id="@+id/action_nurseHomeFragment_to_nurseCallsFragment"
+            app:destination="@id/nurseCallsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+        </action>
+        <action
+            android:id="@+id/action_nurseHomeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="id"
+                app:argType="integer"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/nurseCallsFragment"
+        android:name="com.example.hospitalapp.features.nurse.presentation.view.NurseCallsFragment"
+        android:label="fragment_nurse_calls"
+        tools:layout="@layout/fragment_nurse_calls" />
 
 </navigation>

@@ -33,9 +33,9 @@ class SelectUserViewModel @Inject constructor(private val selectDoctorUseCase: S
         }
     }
 
-    fun filterUsers(query: String) {
+    fun filterUsers(query: String,type:String) {
         viewModelScope.launch {
-            originalList = when(val response = selectDoctorUseCase.invoke(Const.DOCTOR)){
+            originalList = when(val response = selectDoctorUseCase.invoke(type)){
                 is ResponseState.Success ->
                     response.data
                 else -> null

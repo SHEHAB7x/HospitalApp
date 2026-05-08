@@ -1,16 +1,20 @@
 package com.example.hospitalapp.features.doctor.di
 
+import com.example.hospitalapp.features.doctor.data.datasource.DoctorApi
 import com.example.hospitalapp.features.doctor.domain.repo.IDoctorRepository
 import com.example.hospitalapp.features.doctor.domain.usecase.AcceptRejectUseCase
 import com.example.hospitalapp.features.doctor.domain.usecase.AddNurseUseCase
 import com.example.hospitalapp.features.doctor.domain.usecase.AllCallsUseCase
 import com.example.hospitalapp.features.doctor.domain.usecase.AllCasesUseCase
 import com.example.hospitalapp.features.doctor.domain.usecase.CaseDetailsUseCase
+import com.example.hospitalapp.features.doctor.domain.usecase.LogoutCallUseCase
 import com.example.hospitalapp.features.doctor.domain.usecase.MakeRequestUseCase
+import com.example.hospitalapp.framework.network.RetrofitService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
@@ -55,7 +59,13 @@ object DoctorUseCaseModule {
 
     @Provides
     @Singleton
-    fun provideLogoutCallUseCase(repository: IDoctorRepository) : com.example.hospitalapp.features.doctor.domain.usecase.LogoutCallUseCase {
-        return com.example.hospitalapp.features.doctor.domain.usecase.LogoutCallUseCase(repository)
+    fun provideLogoutCallUseCase(repository: IDoctorRepository) : LogoutCallUseCase {
+        return LogoutCallUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDoctorApi(retrofit: Retrofit): DoctorApi {
+        return retrofit.create(DoctorApi::class.java)
     }
 }

@@ -15,8 +15,9 @@ fun Fragment.showToast(message: Any) {
 }
 
 fun String.isValidPhoneNumber(): Boolean {
-    return this.startsWith("010")
+    return (this.startsWith("010")
             || this.startsWith("011")
             || this.startsWith("012")
-            || this.startsWith("015")
+            || this.startsWith("015"))
+            && this.length == 11
 }
