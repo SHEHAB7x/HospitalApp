@@ -38,7 +38,9 @@ Each role has a customized home screen and specific functionalities based on hos
 # ✨ Features
 
 ## 🔐 Authentication
-- Firebase Authentication login system
+- Role-based access control for hospital staff
+- Secure login system using custom backend APIs
+- Employee registration handled by HR through dedicated APIs
 - Persistent login using SharedPreferences
 - Automatic navigation based on user role
 
@@ -115,27 +117,28 @@ Responsible for UI and state management.
 
 # 🛠️ Tech Stack
 
-| Layer        | Technology                              |
-|--------------|------------------------------------------|
-| Language     | Kotlin                                   |
-| UI           | XML                                      |
-| Architecture | Clean Architecture + MVVM                |
-| Dependency Injection | Hilt                            |
-| Networking   | Retrofit                                 |
-| Authentication | Firebase Authentication               |
-| Async        | Kotlin Coroutines                        |
-| State Management | LiveData                            |
-| Local Storage | SharedPreferences                       |
-| Navigation   | Navigation Component                     |
+| Layer        | Technology                |
+|--------------|---------------------------|
+| Language     | Kotlin                    |
+| UI           | XML                       |
+| Architecture | Clean Architecture + MVVM |
+| Dependency Injection | Hilt                      |
+| Networking   | Retrofit                  |
+| Authentication | Custom Backend APIs       |
+| Async        | Kotlin Coroutines         |
+| State Management | LiveData                  |
+| Local Storage | SharedPreferences         |
+| Navigation   | Navigation Component      |
 
 ---
 
 # 🔄 Workflow Example
 
-1. User logs in using Firebase Authentication.
-2. The app determines the user's role.
-3. The user is redirected to a role-specific home screen.
-4. Hospital staff interact with different modules based on permissions.
+1. HR registers new employee through dedicated APIs
+2. Employees log in using their assigned credentials.
+3. The app determines the user's role.
+4. The user is redirected to a role-specific home screen.
+5. Hospital staff interact with different modules based on permissions.
 
 ---
 
