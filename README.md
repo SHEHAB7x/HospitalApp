@@ -7,8 +7,8 @@ A scalable Android hospital management application built with **Clean Architectu
 <p align="center">
   <img src="screenshots/login.png" width="18%" />
   <img src="screenshots/hr_home.png" width="18%" />
-  <img src="screenshots/doctor_home.png" width="18%" />
-  <img src="screenshots/employees.png" width="18%" />
+  <img src="screenshots/register.png" width="18%" />
+  <img src="screenshots/employee.png" width="18%" />
   <img src="screenshots/profile.png" width="18%" />
 </p>
 

@@ -23,7 +23,6 @@ import javax.inject.Singleton
 object AppModule {
 
     private const val BASE_URL = "https://hospital.elhossiny.net/api/v1/"
-
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
